@@ -20,7 +20,6 @@
                             <h4 class="card-title">Data Table</h4>
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
                                 data-whatever="@mdo">Tambah Data</button>
-
                             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
@@ -53,10 +52,6 @@
                                                     <label for="recipient-name" class="col-form-label">Jabatan:</label>
                                                     <input type="text" class="form-control" id="recipient-name">
                                                 </div>
-
-
-
-
                                             </form>
                                         </div>
                                         <div class="modal-footer">
@@ -85,7 +80,7 @@
                                         @foreach ($user as $u)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $u->full_name }}</td>
+                                                <td>{{ $u->name }}</td>
                                                 <td>{{ $u->email }}</td>
                                                 <td>{{ $u->password }}</td>
                                                 <td>{{ $u->level }}</td>

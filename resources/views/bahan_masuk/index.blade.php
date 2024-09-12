@@ -24,7 +24,7 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Bahan Masuk</th>
+                                            <th>Nama Bahan</th>
                                             <th>Distributor</th>
                                             <th>Tgl Masuk</th>
                                             <th>Jumlah KG</th>
@@ -34,7 +34,19 @@
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
-
+                                    <tbody>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
