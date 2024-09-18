@@ -4,21 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\Bahan;
 use Illuminate\Http\Request;
-use App\Models\BahanMasuk;
-use Database\Factories\BahanMasukFactory;
 
-class BahanMasukController extends Controller
+class BahanController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $bahan = Bahan::all(); // pastikan nama model dengan PascalCase
+        $bahan = Bahan::all();
         return view('bahan_masuk.index', compact('bahan'));
-
-        // $bahan_masuk = BahanMasuk::all(); 
-        // return view('bahan_masuk.index');
     }
 
     /**
@@ -47,24 +42,9 @@ class BahanMasukController extends Controller
             'keterangan' => 'required',
         ]);
 
-        // $bahan = new BahanMasuk;
-        // $bahan ->id_bahan =$request->id_bahan;
-        // $bahan ->kode_bahan =$request->kode_bahan;
-        // $bahan ->nama_bahan =$request->nama_bahan;
-        // $bahan ->id_stok_bahan =$request->id_stok_bahan;
-        // $bahan ->id_jenis_bahan =$request->id_jenis_bahan;
-        // $bahan ->id_supplier =$request->id_supplier;
-        // $bahan ->harga_total =$request->harga_total;
-        // $bahan ->harga_per_kg =$request->harga_per_kg;
-        // $bahan ->harga_per_g =$request->harga_per_g;
-        // $bahan ->keterangan =$request->keterangan;
-        // $bahan ->save();
-
-
-
         Bahan::create($request->all());
-        return redirect()->route('bahan_masuk.index')
-                         ->with('success', 'Data berhasil dibuat.');
+
+        return redirect()->route('bahan_masuk.index')->with('success', 'Data berhasil dibuat.');
     }
 
     /**
