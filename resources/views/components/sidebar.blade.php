@@ -19,7 +19,7 @@
         <ul class="metismenu" id="menu">
             <li class="nav-label">Inventory</li>
             <li>
-                <a href="{{ route('bahan_masuk.index') }}" aria-expanded="false">
+                <a href="#" aria-expanded="false">
                     <i class="fas fa-box menu-icon"></i><span class="nav-text">Bahan Masuk</span>
                 </a>
 

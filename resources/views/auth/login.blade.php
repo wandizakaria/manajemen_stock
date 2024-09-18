@@ -8,6 +8,8 @@
     <title>Login Dapoer Dindra</title>
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon.png') }}">
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
+
 </head>
 
 <body class="h-100" style="background: linear-gradient(to right, #86cce4, #FF00B3);">
@@ -15,7 +17,7 @@
         <div class="loader">
             <svg class="circular" viewBox="25 25 50 50">
                 <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3"
-                    stroke-miterlimit="10"/>
+                    stroke-miterlimit="10" />
             </svg>
         </div>
     </div>
@@ -72,6 +74,34 @@
     <script src="{{ asset('assets/js/settings.js') }}"></script>
     <script src="{{ asset('assets/js/gleek.js') }}"></script>
     <script src="{{ asset('assets/js/styleSwitcher.js') }}"></script>
+    <script>
+        // Toastr options (optional)
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": true,
+            "progressBar": true,
+            "positionClass": "toast-top-right", // Set posisi pop-up
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000", // Waktu untuk pop-up tetap muncul
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        };
+
+        @if (session('success'))
+            toastr.success('{{ session('success') }}');
+        @endif
+
+        @if (session('error'))
+            toastr.error('{{ session('error') }}');
+        @endif
+    </script>
 </body>
 
 </html>

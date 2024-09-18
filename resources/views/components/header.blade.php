@@ -9,7 +9,7 @@
             <ul class="clearfix">
                 <li class="icons dropdown">
                     <div class="text-right" style="margin-right: 10px; line-height: 1.3;">
-                        <span style="font-size: 16px; font-weight: bold;">{{ Auth::user()->full_name }}</span><br>
+                        <span style="font-size: 16px; font-weight: bold;">{{ Auth::user()->name }}</span><br>
                         <span class="text-muted"
                             style="font-size: 14px; font-weight: normal;">{{ Auth::user()->level }}</span>
                     </div>

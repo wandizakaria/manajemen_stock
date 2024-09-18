@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bahan;
 use Illuminate\Http\Request;
 use App\Models\BahanMasuk;
-
-
+use Database\Factories\BahanMasukFactory;
 
 class BahanMasukController extends Controller
 {
@@ -14,7 +14,7 @@ class BahanMasukController extends Controller
      */
     public function index()
     {
-        $bahan = BahanMasuk::all(); // pastikan nama model dengan PascalCase
+        $bahan = Bahan::all(); // pastikan nama model dengan PascalCase
         return view('bahan_masuk.index', compact('bahan'));
 
         // $bahan_masuk = BahanMasuk::all(); 
@@ -62,7 +62,7 @@ class BahanMasukController extends Controller
 
 
 
-        BahanMasuk::create($request->all());
+        Bahan::create($request->all());
         return redirect()->route('bahan_masuk.index')
                          ->with('success', 'Data berhasil dibuat.');
     }
@@ -70,7 +70,7 @@ class BahanMasukController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(BahanMasuk $id)
+    public function show(Bahan $id)
     {
         return view('bahan_masuk.show', compact('show'));
     }
@@ -78,7 +78,7 @@ class BahanMasukController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(BahanMasuk $id)
+    public function edit(Bahan $id)
     {
         return view('bahan_masuk.edit', compact('index'));
     }
