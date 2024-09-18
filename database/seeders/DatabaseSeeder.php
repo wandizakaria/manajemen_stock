@@ -14,11 +14,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::create([
-            'name' => 'Wandi',
-            'level' => 'pemilik',
-            'username' => 'Wandi',
-            'password' => bcrypt('wandi123')
+        $this->call([
+            UserSeeder::class,
+            SupplierSeeder::class,
+            JenisBahanSeeder::class,
+            ProduksiSeeder::class,
+            StokBahanSeeder::class,
+            BahanSeeder::class
         ]);
     }
 }

@@ -11,14 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('suppliers', function (Blueprint $table) {
-            $table->id('id_supplier');
-            $table->string('kode_supplier');
-            $table->string('nama_supplier');
-            $table->text('alamat');
-            $table->string('no_tlpon');
+        Schema::create('stok_bahan', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('produksi_id');
+            $table->decimal('jumlah_gram', 15, 2);
             $table->timestamps();
+
+            // Correcting the foreign key reference
+            $table->foreign('produksi_id')->references('id')->on('produksi')->onDelete('cascade');
         });
+
     }
 
     /**
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('suppliers');
+        Schema::dropIfExists('stok_bahan');
     }
 };
