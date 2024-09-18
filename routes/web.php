@@ -1,13 +1,13 @@
 <?php
 
-use App\Http\Controllers\BahanController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ManajemenUserController;
-use App\Http\Controllers\BahanMasukController;
 use App\Http\Controllers\StokBahanController;
 use App\Http\Controllers\ProduksiController;
+use App\Http\Controllers\BahanController;
+use App\Http\Controllers\BahanMasukController;
 
 
 
@@ -20,7 +20,7 @@ Route::get('home', [HomeController::class, 'index'])->middleware(['auth', 'verif
 Route::resource('manajemen_user', ManajemenUserController::class);
 Route::resource('stok_bahan', StokBahanController::class);
 Route::resource('produksi', ProduksiController::class);
-Route::resource('bahan_masuk', BahanController::class);
+Route::resource('bahan_masuk', BahanMasukController::class);
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');

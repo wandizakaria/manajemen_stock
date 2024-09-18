@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Bahan;
 
-class BahanController extends Controller
+
+class BahanMasukController extends Controller
 {
     /**
      * Display a listing of the resource.
