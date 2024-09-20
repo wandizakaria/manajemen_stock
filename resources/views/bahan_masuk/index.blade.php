@@ -17,7 +17,13 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <a href="{{ route('bahan_masuk.create') }}" class="btn btn-primary mb-3">Tambah Data</a>
+                             <div class="d-flex justify-content-between align-items-center">
+                                <h4 class="card-title">Data Bahan Masuk</h4>
+                                <a href="#" class="btn btn-primary">
+                                    <i class="fas fa-plus" style="margin-right: 5px;"></i>
+                                    <span>Tambah Data Bahan Masuk</span>
+                                </a>
+                            </div>
 
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered zero-configuration">
@@ -46,9 +52,13 @@
                                                 <td>{{ $b->harga_per_g }}</td>
                                                 <td>{{ $b->keterangan }}</td>
                                                 <td>
-                                                    <a href="" class="btn btn-primary" style="border-radius:10px">
+                                                    <a href="" class="btn btn-primary btn-sm" style="border-radius:5px">
                                                         <i class="fas fa-edit"></i>
                                                     </a>
+                                                    <span style="margin-right: 5px"></span>
+                                                    <button class="btn btn-danger btn-sm" style="border-radius:5px">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
                                                 </td>
                                         </tr>
                                         @endforeach

@@ -22,7 +22,7 @@ class ManajemenUserController extends Controller
      */
     public function create()
     {
-        //
+        return view('manajemen_user.create');
     }
 
     /**

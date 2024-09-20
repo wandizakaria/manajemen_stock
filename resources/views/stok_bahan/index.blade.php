@@ -7,8 +7,8 @@
         <div class="row page-titles mx-0">
             <div class="col p-md-0">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
-                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('home.index') }}">Dashboard</a></li>
+                    <li class="breadcrumb-item active"><a href="{{ route('stok_bahan.index') }}">Stok Bahan</a></li>
                 </ol>
             </div>
         </div>
@@ -17,69 +17,12 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Data Table</h4>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-                                data-whatever="@mdo">Tambah Data</button>
-
-                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                                aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Tambah Data</h5>
-                                            <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Close"><span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <form>
-                                                <div class="form-group">
-                                                    <label for="recipient-name" class="col-form-label">Nama
-                                                        Bahan:</label>
-                                                    <input type="text" class="form-control" id="recipient-name">
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="recipient-name" class="col-form-label">Jenis Bahan:</label>
-                                                    <input type="text" class="form-control" id="recipient-name">
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="recipient-name" class="col-form-label">Jumlah Gram:</label>
-                                                    <input type="text" class="form-control" id="recipient-name">
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="recipient-name" class="col-form-label">Jumlah
-                                                        Keluar:</label>
-                                                    <input type="text" class="form-control" id="recipient-name">
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="recipient-name" class="col-form-label">Tgl Keluar:</label>
-                                                    <input type="text" class="form-control" id="recipient-name">
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="recipient-name" class="col-form-label">Keterangan:</label>
-                                                    <input type="text" class="form-control" id="recipient-name">
-                                                </div>
-
-
-
-
-
-
-                                            </form>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                style="border-radius:10px">Batal</button>
-                                            <button type="button" class="btn btn-primary"
-                                                style="border-radius:10px">Simpan</button>
-                                        </div>
-                                    </div>
-                                </div>
+                             <div class="d-flex justify-content-between align-items-center">
+                                <h4 class="card-title">Data Stok Bahan</h4>
+                                <a href="#" class="btn btn-primary">
+                                    <i class="fas fa-plus" style="margin-right: 5px;"></i>
+                                    <span>Tambah Data Stok Bahan</span>
+                                </a>
                             </div>
 
                             <div class="table-responsive">
@@ -95,30 +38,32 @@
                                             <th>Keterangan</th>
                                             <th>Aksi</th>
                                         </tr>
+                                    </thead>
+                                    <tbody>
                                         @foreach ($stokbahan as $u)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $u->produksi_id }}</td>
-                                                <td>{{ $u->jenis_bahan }}</td>
-                                                <td>{{ $u->jumlah_gram }}</td>
-                                                <td>{{ $u->jumlah_keluar }}</td>
-                                                <td>{{ $u->tgl_keluar }}</td>
-                                                <td>{{ $u->keterangan }}</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
 
                                                 <td>
                                                     <form action="">
-                                                        <a href="" class="btn btn-primary"
-                                                            style="border-radius:10px">
+                                                        <a href="" class="btn btn-primary btn-sm" style="border-radius:5px">
                                                             <i class="fas fa-edit"></i>
                                                         </a>
+                                                        <span style="margin-right: 5px"></span>
+                                                        <button class="btn btn-danger btn-sm" style="border-radius:5px">
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
                                                     </form>
                                                 </td>
                                             </tr>
                                         @endforeach
-
-
-                                    </thead>
-
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
