@@ -94,6 +94,23 @@
                                             <th>Aksi</th>
 
                                         </tr>
+
+                                        @foreach ($produksi as $p)
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $p->jenis_produksi }}</td>
+                                            <td>{{ $p->jumlah_produksi }}</td>
+                                            <td>{{ $p->tgl_produksi }}</td>
+                                            <td>{{ $p->keterangan }}</td>
+
+                                            <td>
+                                                <button type="button" class="btn mb-1 btn-danger">Hapus</button>
+
+                                                <a href="" class="btn btn-primary" style="border-radius:10px">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                            </td>
+                                            </tr>
+                                        @endforeach
                                     </thead>
 
                                 </table>

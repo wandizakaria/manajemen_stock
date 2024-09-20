@@ -1,8 +1,4 @@
-@extends('layouts.master')
 
-@section('title', 'Home')
-
-@section('content')
     <div class="content-body">
         <div class="row page-titles mx-0">
             <div class="col p-md-0">
@@ -16,8 +12,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card">
-                        <form method="POST" action="{{ route('bahan_masuk.store') }}" class="needs-validation"
-                            novalidate="">
+                        <form action="{{ route('bahan_masuk.store') }}" method="POST">
                             @csrf
                             <div class="card-header">
                                 <h4>Tambah Bahan</h4>

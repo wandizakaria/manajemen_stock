@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\StokBahan;
 
 class StokBahanController extends Controller
 {
@@ -12,8 +13,8 @@ class StokBahanController extends Controller
     public function index()
     {
         
-    
-       return view('stok_bahan.index');
+        $stokbahan = StokBahan::all();
+       return view('stok_bahan.index', ['stokbahan' =>$stokbahan]);
     }
 
     /**

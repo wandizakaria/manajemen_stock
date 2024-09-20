@@ -36,16 +36,23 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                            @foreach ($bahan as $b)
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $b->nama_bahan }}</td>
+                                                <td>{{ $b->supplier_id }}</td>
+                                                <td>{{ $b->tgl_masuk }}</td>
+                                                <td>{{ $b->harga_total }}</td>
+                                                <td>{{ $b->harga_per_kg }}</td>
+                                                <td>{{ $b->harga_per_g }}</td>
+                                                <td>{{ $b->keterangan }}</td>
+                                                <td>
+                                                    <a href="" class="btn btn-primary" style="border-radius:10px">
+                                                        <i class="fas fa-edit"></i>
+                                                    </a>
+                                                </td>
                                         </tr>
+                                        @endforeach
+
                                     </tbody>
                                 </table>
                             </div>

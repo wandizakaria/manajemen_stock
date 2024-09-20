@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('jenis_produksi');
             $table->string('jumlah_produksi');
             $table->date('tgl_produksi');
+            $table->string('keterangan')->nullable();
             $table->timestamps();
         });
     }

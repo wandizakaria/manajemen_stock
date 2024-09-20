@@ -95,6 +95,28 @@
                                             <th>Keterangan</th>
                                             <th>Aksi</th>
                                         </tr>
+                                        @foreach ($stokbahan as $u)
+                                            <tr>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $u->produksi_id }}</td>
+                                                <td>{{ $u->jenis_bahan }}</td>
+                                                <td>{{ $u->jumlah_gram }}</td>
+                                                <td>{{ $u->jumlah_keluar }}</td>
+                                                <td>{{ $u->tgl_keluar }}</td>
+                                                <td>{{ $u->keterangan }}</td>
+
+                                                <td>
+                                                    <form action="">
+                                                        <a href="" class="btn btn-primary"
+                                                            style="border-radius:10px">
+                                                            <i class="fas fa-edit"></i>
+                                                        </a>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+
+
                                     </thead>
 
                                 </table>

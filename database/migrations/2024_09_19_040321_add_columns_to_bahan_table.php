@@ -19,6 +19,7 @@ return new class extends Migration
             $table->unsignedBigInteger('jenis_bahan_id'); // Fixed column name
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('supplier_id');
+            $table->date('tgl_masuk')->nullable();
             $table->decimal('harga_total', 15, 2);
             $table->decimal('harga_per_kg', 15, 2);
             $table->decimal('harga_per_g', 15, 2);

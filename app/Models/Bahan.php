@@ -18,6 +18,7 @@ class Bahan extends Model
         'jenis_bahan_id', // Fixed column name
         'user_id',        // Fixed column name
         'supplier_id',    // Fixed column name
+        'tgl_masuk',    // Fixed column name
         'harga_total',
         'harga_per_kg',
         'harga_per_g',

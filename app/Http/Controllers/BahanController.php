@@ -27,7 +27,7 @@ class BahanController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request) 
     {
         $request->validate([
             'id_bahan' => 'required|integer',
@@ -37,7 +37,7 @@ class BahanController extends Controller
             'id_jenis_bahan' => 'required|integer',
             'id_supplier' => 'required|integer',
             'harga_total' => 'required|integer',
-            'harga_per_kg' => 'required|integer',
+            'harga_per_kg' => 'required|integer',   
             'harga_per_g' => 'required|integer',
             'keterangan' => 'required',
         ]);
@@ -50,15 +50,15 @@ class BahanController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Bahan $id)
+    public function show(Bahan $bahan)
     {
-        return view('bahan_masuk.show', compact('show'));
+        return view('bahan_masuk.show', compact('bahan'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Bahan $id)
+    public function edit(Bahan $bahan)
     {
         return view('bahan_masuk.edit', compact('index'));
     }

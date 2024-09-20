@@ -14,7 +14,11 @@ return new class extends Migration
         Schema::create('stok_bahan', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('produksi_id');
+            $table->string('jenis_bahan' );
             $table->decimal('jumlah_gram', 15, 2);
+            $table->decimal('jumlah_keluar', 15, 2);
+            $table->date('tgl_keluar');
+            $table->string('keterangan')->nullable();
             $table->timestamps();
 
             // Correcting the foreign key reference
