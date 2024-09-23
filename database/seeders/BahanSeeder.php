@@ -14,12 +14,11 @@ class BahanSeeder extends Seeder
     public function run(): void
     {
         Bahan::create([
-            'kode_bahan' => 'BHN001',
-            'nama_bahan' => 'Gula Pasir',
             'stok_bahan_id' => 1,
             'jenis_bahan_id' => 1,
-            'user_id' => 1,
             'supplier_id' => 1,
+            'kode_bahan' => 'BHN001',
+            'nama_bahan' => 'Gula Pasir',
             'tgl_masuk' => '2024-09-19' ,
             'harga_total' => 150000.00,
             'harga_per_kg' => 15000.00,

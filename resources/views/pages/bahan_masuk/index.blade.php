@@ -17,9 +17,9 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                             <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex justify-content-between align-items-center">
                                 <h4 class="card-title">Data Bahan Masuk</h4>
-                                <a href="#" class="btn btn-primary">
+                                <a href="{{ route('bahan_masuk.create') }}" class="btn btn-primary">
                                     <i class="fas fa-plus" style="margin-right: 5px;"></i>
                                     <span>Tambah Data Bahan Masuk</span>
                                 </a>
@@ -28,31 +28,38 @@
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered zero-configuration">
                                     <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Nama Bahan</th>
-                                            <th>Distributor</th>
-                                            <th>Tgl Masuk</th>
-                                            <th>Jumlah KG</th>
-                                            <th>Jumlah Gram</th>
-                                            <th>Total Harga</th>
-                                            <th>Keterangan</th>
-                                            <th>Aksi</th>
+                                        <tr class="text-center">
+                                            <th style="color: black">No</th>
+                                            <th style="color: black">Kode Bahan</th>
+                                            <th style="color: black">Distributor</th>
+                                            <th style="color: black">Nama Bahan</th>
+                                            <th style="color: black">Jenis Bahan</th>
+                                            <th style="color: black">Tgl Masuk</th>
+                                            <th style="color: black">Jumlah KG</th>
+                                            <th style="color: black">Jumlah Gram</th>
+                                            <th style="color: black">Total Harga</th>
+                                            <th style="color: black">Stok Masuk</th>
+                                            <th style="color: black">Keterangan</th>
+                                            <th style="color: black">Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
+                                        <tr class="text-center">
                                             @foreach ($bahan as $b)
-                                                <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $b->nama_bahan }}</td>
-                                                <td>{{ $b->supplier->nama_supplier }}</td>
-                                                <td>{{ $b->tgl_masuk }}</td>
-                                                <td>{{ $b->harga_total }}</td>
-                                                <td>{{ $b->harga_per_kg }}</td>
-                                                <td>{{ $b->harga_per_g }}</td>
-                                                <td>{{ $b->keterangan }}</td>
+                                                <td style="color: black">{{ $loop->iteration }}</td>
+                                                <td style="color: black">{{ $b->kode_bahan }}</td>
+                                                <td style="color: black">{{ $b->supplier->nama_supplier }}</td>
+                                                <td style="color: black">{{ $b->nama_bahan }}</td>
+                                                <td style="color: black">{{ $b->jenis_bahan->jenis_bahan }}</td>
+                                                <td style="color: black">{{ $b->tgl_masuk }}</td>
+                                                <td style="color: black">{{ $b->harga_per_kg }}</td>
+                                                <td style="color: black">{{ $b->harga_per_g }}</td>
+                                                <td style="color: black">{{ $b->harga_total }}</td>
+                                                <td style="color: black">{{ $b->stok_bahan->jumlah_masuk }}</td>
+                                                <td style="color: black">{{ $b->keterangan }}</td>
                                                 <td>
-                                                    <a href="" class="btn btn-primary btn-sm" style="border-radius:5px">
+                                                    <a href="#" class="btn btn-primary btn-sm"
+                                                        style="border-radius:5px">
                                                         <i class="fas fa-edit"></i>
                                                     </a>
                                                     <span style="margin-right: 5px"></span>
@@ -60,8 +67,8 @@
                                                         <i class="fas fa-trash"></i>
                                                     </button>
                                                 </td>
+                                            @endforeach
                                         </tr>
-                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

@@ -16,7 +16,7 @@ class Bahan extends Model
         'nama_bahan',
         'stok_bahan_id',  
         'jenis_bahan_id', 
-        'user_id',        
+        // 'user_id',        
         'supplier_id',    
         'tgl_masuk',   
         'harga_total',
@@ -40,8 +40,8 @@ class Bahan extends Model
         return $this->belongsTo(Supplier::class, 'supplier_id');      
     }
 
-    public function user()
-    {
-        return $this->belongsTo(User::class, 'user_id');              
-    }
+    // public function user()
+    // {
+    //     return $this->belongsTo(User::class, 'user_id');              
+    // }
 }

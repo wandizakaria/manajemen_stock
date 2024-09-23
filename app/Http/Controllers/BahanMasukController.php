@@ -22,7 +22,7 @@ class BahanMasukController extends Controller
      */
     public function create()
     {
-        return view('bahan_masuk.create');
+        return view('pages.bahan_masuk.create');
     }
 
     /**
@@ -30,39 +30,39 @@ class BahanMasukController extends Controller
      */
     public function store(Request $request)
     {
+        // Validasi input sesuai dengan field yang ada di form
         $request->validate([
-            'id_bahan' => 'required|integer',
-            'kode_bahan' => 'required',
-            'nama_bahan' => 'required',
-            'id_stok_bahan' => 'required|integer',
-            'id_jenis_bahan' => 'required|integer',
-            'id_supplier' => 'required|integer',
-            'harga_total' => 'required|integer',
-            'harga_per_kg' => 'required|integer',
-            'harga_per_g' => 'required|integer',
-            'keterangan' => 'required',
+            'kode_bahan' => '',
+            'nama_bahan' => '',
+            'stok_bahan_id' => '',
+            'jenis_bahan_id' => '', // Mengubah ke string sesuai input form
+            'supplier_id' => '', // Mengubah ke string sesuai input form
+            'tgl_masuk' => '',
+            'harga_total' => '',
+            'harga_per_kg' => '',
+            'harga_per_g' => '',
+            'keterangan' => '',
         ]);
 
+        // Membuat data baru di tabel 'bahan'
         Bahan::create($request->all());
 
+        // Redirect ke halaman index dengan pesan sukses
         return redirect()->route('bahan_masuk.index')->with('success', 'Data berhasil dibuat.');
     }
+
+
+
 
     /**
      * Display the specified resource.
      */
-    public function show(Bahan $id)
-    {
-        return view('bahan_masuk.show', compact('show'));
-    }
+    public function show(Bahan $id) {}
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Bahan $id)
-    {
-        return view('bahan_masuk.edit', compact('index'));
-    }
+    public function edit(Bahan $id) {}
 
     /**
      * Update the specified resource in storage.

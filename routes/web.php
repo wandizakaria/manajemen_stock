@@ -8,8 +8,7 @@ use App\Http\Controllers\StokBahanController;
 use App\Http\Controllers\ProduksiController;
 use App\Http\Controllers\BahanController;
 use App\Http\Controllers\BahanMasukController;
-
-
+use App\Http\Controllers\SupplierController;
 
 Route::get('/', function () {
     return view('auth.login');
@@ -18,9 +17,10 @@ Route::get('/', function () {
 Route::get('home', [HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('home.index');
 
 Route::resource('manajemen_user', ManajemenUserController::class);
+Route::resource('supplier', SupplierController::class);
 Route::resource('stok_bahan', StokBahanController::class);
 Route::resource('produksi', ProduksiController::class);
-Route::resource('bahan_masuk', BahanMasukController::class);
+Route::resource('bahan_masuk', BahanController::class);
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');

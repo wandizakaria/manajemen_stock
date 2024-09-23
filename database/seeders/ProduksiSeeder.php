@@ -17,7 +17,7 @@ class ProduksiSeeder extends Seeder
         Produksi::create([
             'jenis_produksi' => 'Roti Isi Coklat',
             'jumlah_produksi' => '1000',
-            'tgl_produksi' => Carbon::create(2024, 9, 15),
+            'tgl_produksi' => '2024-12-05',
             'keterangan' => 'Roti yang berisikan coklat',
         ]);
     }

@@ -15,8 +15,9 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('produksi_id');
             $table->unsignedBigInteger('jenis_bahan_id');
-            $table->decimal('jumlah_gram', 15, 2);
-            $table->decimal('jumlah_keluar', 15, 2);
+            $table->string('jumlah_gram');
+            $table->string('jumlah_masuk');
+            $table->string('jumlah_keluar');
             $table->date('tgl_keluar');
             $table->string('keterangan')->nullable();
             $table->timestamps();

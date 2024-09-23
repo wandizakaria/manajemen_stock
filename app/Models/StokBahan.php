@@ -13,8 +13,9 @@ class StokBahan extends Model
 
     protected $fillable = [
         'produksi_id',
-        'bahan_id',
+        'jenis_bahan_id',
         'jumlah_gram',
+        'jumlah_masuk',
         'jumlah_keluar',
         'tgl_keluar',
         'keterangan',

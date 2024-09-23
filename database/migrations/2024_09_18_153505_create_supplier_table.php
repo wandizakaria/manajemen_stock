@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('kode_supplier');
             $table->string('nama_supplier');
-            $table->text('alamat');
+            $table->string('alamat');
             $table->string('no_telepon');
             $table->timestamps();
         });
