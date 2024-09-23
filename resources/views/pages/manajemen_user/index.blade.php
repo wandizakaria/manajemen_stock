@@ -27,7 +27,7 @@
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered zero-configuration">
                                     <thead>
-                                        <tr class="text-center">
+                                        <tr class="text-center text-dark">
                                             <th>No</th>
                                             <th>Nama</th>
                                             <th>Username</th>
@@ -38,10 +38,10 @@
                                     <tbody>
                                         @foreach ($user as $u)
                                             <tr class="text-center">
-                                                <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $u->name }}</td>
-                                                <td>{{ $u->username }}</td>
-                                                <td>{{ $u->level }}</td>
+                                                <td style="color: black">{{ $loop->iteration }}</td>
+                                                <td style="color: black">{{ $u->name }}</td>
+                                                <td style="color: black">{{ $u->username }}</td>
+                                                <td style="color: black">{{ $u->level }}</td>
                                                 <td>
                                                     <form action="{{ route('manajemen_user.destroy', $u->id) }}"
                                                         method="POST" class="delete-form">

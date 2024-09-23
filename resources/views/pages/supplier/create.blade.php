@@ -24,27 +24,27 @@
                                     @csrf
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
-                                            <label for="kode_supplier">Kode Supplier</label>
-                                            <input type="text" class="form-control" id="kode_supplier"
+                                            <label for="kode_supplier" style="color: black">Kode Supplier</label>
+                                            <input type="text" class="form-control" id="kode_supplier" style="color: black"
                                                 name="kode_supplier" placeholder="Enter Kode Supplier"
                                                 style="border-radius: 10px" required>
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label for="nama_supplier">Nama Supplier</label>
-                                            <input type="text" class="form-control" id="nama_supplier"
+                                            <label for="nama_supplier" style="color: black">Nama Supplier</label>
+                                            <input type="text" class="form-control" id="nama_supplier" style="color: black"
                                                 name="nama_supplier" placeholder="Enter Nama Supplier"
                                                 style="border-radius: 10px" required>
                                         </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
-                                            <label for="alamat">Alamat</label>
-                                            <input type="text" class="form-control" id="alamat" name="alamat"
+                                            <label for="alamat" style="color: black">Alamat</label>
+                                            <input type="text" class="form-control" id="alamat" name="alamat" style="color: black"
                                                 placeholder="Enter Alamat" style="border-radius: 10px" required>
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label for="no_telepon">No Telepon</label>
-                                            <input type="text" class="form-control" id="no_telepon" name="no_telepon"
+                                            <label for="no_telepon" style="color: black">No Telepon</label>
+                                            <input type="text" class="form-control" id="no_telepon" name="no_telepon" style="color: black"
                                                 placeholder="Enter No Telepon" style="border-radius: 10px" required>
                                         </div>
                                     </div>
