@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Home')
+@section('title', 'Bahan Masuk')
 
 @section('content')
     <div class="content-body">
@@ -45,7 +45,7 @@
                                             @foreach ($bahan as $b)
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $b->nama_bahan }}</td>
-                                                <td>{{ $b->supplier_id }}</td>
+                                                <td>{{ $b->supplier->nama_supplier }}</td>
                                                 <td>{{ $b->tgl_masuk }}</td>
                                                 <td>{{ $b->harga_total }}</td>
                                                 <td>{{ $b->harga_per_kg }}</td>
@@ -62,7 +62,6 @@
                                                 </td>
                                         </tr>
                                         @endforeach
-
                                     </tbody>
                                 </table>
                             </div>

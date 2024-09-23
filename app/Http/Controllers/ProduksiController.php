@@ -13,7 +13,7 @@ class ProduksiController extends Controller
     public function index()
     {
         $produksi = Produksi::all();
-        return View('produksi.index', ['produksi' =>$produksi]);
+        return View('pages.produksi.index', ['produksi' =>$produksi]);
     }
 
     /**

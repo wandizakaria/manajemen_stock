@@ -13,11 +13,20 @@ class StokBahan extends Model
 
     protected $fillable = [
         'produksi_id',
+        'bahan_id',
         'jumlah_gram',
+        'jumlah_keluar',
+        'tgl_keluar',
+        'keterangan',
     ];
 
     public function produksi()
     {
         return $this->belongsTo(Produksi::class, 'produksi_id');
+    }
+
+    public function jenis_bahan()
+    {
+        return $this->belongsTo(JenisBahan::class, 'jenis_bahan_id');
     }
 }

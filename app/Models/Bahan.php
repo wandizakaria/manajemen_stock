@@ -14,11 +14,11 @@ class Bahan extends Model
     protected $fillable = [
         'kode_bahan',
         'nama_bahan',
-        'stok_bahan_id',  // Fixed column name
-        'jenis_bahan_id', // Fixed column name
-        'user_id',        // Fixed column name
-        'supplier_id',    // Fixed column name
-        'tgl_masuk',    // Fixed column name
+        'stok_bahan_id',  
+        'jenis_bahan_id', 
+        'user_id',        
+        'supplier_id',    
+        'tgl_masuk',   
         'harga_total',
         'harga_per_kg',
         'harga_per_g',
@@ -27,21 +27,21 @@ class Bahan extends Model
 
     public function stok_bahan()
     {
-        return $this->belongsTo(StokBahan::class, 'stok_bahan_id');  // Fixed relation
+        return $this->belongsTo(StokBahan::class, 'stok_bahan_id');  
     }
 
     public function jenis_bahan()
     {
-        return $this->belongsTo(JenisBahan::class, 'jenis_bahan_id'); // Fixed relation
+        return $this->belongsTo(JenisBahan::class, 'jenis_bahan_id'); 
     }
 
     public function supplier()
     {
-        return $this->belongsTo(Supplier::class, 'supplier_id');      // Fixed relation
+        return $this->belongsTo(Supplier::class, 'supplier_id');      
     }
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'user_id');              // Fixed relation
+        return $this->belongsTo(User::class, 'user_id');              
     }
 }

@@ -13,8 +13,8 @@ class StokBahanController extends Controller
     public function index()
     {
         
-        $stokbahan = StokBahan::all();
-       return view('stok_bahan.index', ['stokbahan' =>$stokbahan]);
+        $stok_bahan = StokBahan::all();
+       return view('pages.stok_bahan.index', compact('stok_bahan'));
     }
 
     /**

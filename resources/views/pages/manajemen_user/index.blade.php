@@ -1,14 +1,14 @@
 @extends('layouts.master')
 
-@section('title', 'Home')
+@section('title', 'Manajemen User')
 
 @section('content')
     <div class="content-body">
         <div class="row page-titles mx-0">
             <div class="col p-md-0">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{ route('home.index') }}">Dashboard</a></li>
-                    <li class="breadcrumb-item active"><a href="{{ route('stok_bahan.index') }}">Stok Bahan</a></li>
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
+                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Manajemen User</a></li>
                 </ol>
             </div>
         </div>
@@ -17,46 +17,42 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                             <div class="d-flex justify-content-between align-items-center">
-                                <h4 class="card-title">Data Stok Bahan</h4>
-                                <a href="#" class="btn btn-primary">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h4 class="card-title">Data User</h4>
+                                <a href="{{ route('manajemen_user.create') }}" class="btn btn-primary">
                                     <i class="fas fa-plus" style="margin-right: 5px;"></i>
-                                    <span>Tambah Data Stok Bahan</span>
+                                    <span>Tambah Data</span>
                                 </a>
                             </div>
-
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered zero-configuration">
                                     <thead>
-                                        <tr>
+                                        <tr class="text-center">
                                             <th>No</th>
-                                            <th>Nama Bahan</th>
-                                            <th>Jenis Bahan</th>
-                                            <th>Jumlah Gram</th>
-                                            <th>Jumlah Keluar</th>
-                                            <th>Tgl Keluar</th>
-                                            <th>Keterangan</th>
+                                            <th>Nama</th>
+                                            <th>Username</th>
+                                            <th>Jabatan</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($stokbahan as $u)
-                                            <tr>
+                                        @foreach ($user as $u)
+                                            <tr class="text-center">
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-
+                                                <td>{{ $u->name }}</td>
+                                                <td>{{ $u->username }}</td>
+                                                <td>{{ $u->level }}</td>
                                                 <td>
-                                                    <form action="">
-                                                        <a href="" class="btn btn-primary btn-sm" style="border-radius:5px">
+                                                    <form action="{{ route('manajemen_user.destroy', $u->id) }}"
+                                                        method="POST" class="delete-form">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <a href="{{ route('manajemen_user.edit', $u->id) }}"
+                                                            class="btn btn-primary btn-sm" style="border-radius:5px">
                                                             <i class="fas fa-edit"></i>
                                                         </a>
-                                                        <span style="margin-right: 5px"></span>
-                                                        <button class="btn btn-danger btn-sm" style="border-radius:5px">
+                                                        <button type="submit" class="btn btn-danger btn-sm"
+                                                            style="border-radius:5px ">
                                                             <i class="fas fa-trash"></i>
                                                         </button>
                                                     </form>

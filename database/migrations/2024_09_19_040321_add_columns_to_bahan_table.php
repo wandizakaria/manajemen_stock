@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('kode_bahan');
             $table->string('nama_bahan');
             $table->unsignedBigInteger('stok_bahan_id');
-            $table->unsignedBigInteger('jenis_bahan_id'); // Fixed column name
+            $table->unsignedBigInteger('jenis_bahan_id'); 
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('supplier_id');
             $table->date('tgl_masuk')->nullable();
@@ -26,7 +26,6 @@ return new class extends Migration
             $table->text('keterangan')->nullable();
             $table->timestamps();
 
-            // Correct foreign key definitions
             $table->foreign('stok_bahan_id')->references('id')->on('stok_bahan')->onDelete('cascade');
             $table->foreign('jenis_bahan_id')->references('id')->on('jenis_bahan')->onDelete('cascade');
             $table->foreign('supplier_id')->references('id')->on('supplier')->onDelete('cascade');

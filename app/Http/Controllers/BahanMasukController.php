@@ -14,7 +14,7 @@ class BahanMasukController extends Controller
     public function index()
     {
         $bahan = Bahan::all();
-        return view('bahan_masuk.index', compact('bahan'));
+        return view('pages.bahan_masuk.index', compact('bahan'));
     }
 
     /**

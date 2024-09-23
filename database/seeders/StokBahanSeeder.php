@@ -15,7 +15,7 @@ class StokBahanSeeder extends Seeder
     {
         StokBahan::create([
             'produksi_id' => 1,
-            'jenis_bahan' =>'terigu',
+            'jenis_bahan_id' => 1,
             'jumlah_gram' => 1000,
             'jumlah_keluar' => 500,
             'tgl_keluar' => '2024-09-20',
