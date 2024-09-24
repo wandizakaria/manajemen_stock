@@ -23,7 +23,9 @@ class BahanController extends Controller
      */
     public function create()
     {
-        return view('pages.bahan_masuk.create');
+        $supplier = Supplier::all();
+        $data_bahan = Bahan::with('supplier')->get();
+        return view('pages.bahan_masuk.create', compact('data_bahan', 'supplier'));
     }
 
     /**
@@ -31,40 +33,17 @@ class BahanController extends Controller
      */
     public function store(Request $request)
     {
-        // Validasi input
-        $validateData= $request->validate([
-            'kode_bahan' => 'required|string',
-            'nama_bahan' => 'required|string',
-            'stok_bahan_id' => 'required|integer',
-            'jenis_bahan_id' => 'required|string',
-            'supplier_id' => 'required|string',
-            'tgl_masuk' => 'required|date',
-            'harga_total' => 'required|numeric',
-            'harga_per_kg' => 'required|numeric',
-            'harga_per_g' => 'required|numeric',
-            'keterangan' => 'nullable|string',
+        $request->validate([
+            'supplier_id' => '',
+            'tgl_masuk' => '',
+            'harga_total' => '',
+            'harga_per_kg' => '',
+            'harga_per_g' => '',
+            'keterangan' => '',
         ]);
 
-        dd($validateData);
-
-        // Menyimpan supplier baru jika tidak ada
-        $supplier = Supplier::firstOrCreate([
-            'kode_supplier' => $request->kode_supplier,
-            'nama_supplier' => $request->supplier_id,
-            'alamat' => $request->alamat, // Menggunakan alamat dari input hidden
-            'no_telepon' => $request->no_telepon, // Menggunakan no_telepon dari input hidden
-        ]);
-
-        // Menyimpan jenis bahan baru jika tidak ada
-        $jenisBahan = JenisBahan::firstOrCreate(['jenis_bahan' => $request->jenis_bahan_id]);
-
-        // Membuat data baru di tabel 'bahan'
         Bahan::create([
-            'kode_bahan' => $request->kode_bahan,
-            'nama_bahan' => $request->nama_bahan,
-            'stok_bahan_id' => $request->stok_bahan_id,
-            'jenis_bahan_id' => $jenisBahan->id,
-            'supplier_id' => $supplier->id,
+            'supplier_id' => $request->supplier_id,
             'tgl_masuk' => $request->tgl_masuk,
             'harga_total' => $request->harga_total,
             'harga_per_kg' => $request->harga_per_kg,
@@ -72,14 +51,8 @@ class BahanController extends Controller
             'keterangan' => $request->keterangan,
         ]);
 
-        // Redirect ke halaman index dengan pesan sukses
-        return redirect()->route('bahan_masuk.index')->with('success', 'Data berhasil dibuat.');
+        return redirect()->route('bahan_masuk.index')->with('success', 'Data berhasil disimpan.');
     }
-
-
-
-
-
 
     /**
      * Display the specified resource.
@@ -89,7 +62,14 @@ class BahanController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Bahan $id) {}
+    public function edit(Bahan $bahan)
+    {
+        $supplier = Supplier::all();
+        return view('pages.bahan_masuk.edit', compact('bahan', 'supplier'));
+    }
+
+
+
 
     /**
      * Update the specified resource in storage.

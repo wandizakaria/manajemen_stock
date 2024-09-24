@@ -54,6 +54,22 @@
                                                 style="border-radius: 10px" required>
                                         </div>
                                     </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="nama_bahan" style="color: black">Nama Bahan</label>
+                                            <input type="text" class="form-control" id="nama_bahan" name="nama_bahan"
+                                                style="color: black; border-radius: 10px" placeholder="Enter Nama Bahan"
+                                                value="{{ old('nama_bahan', $supplier->nama_bahan) }}"
+                                                style="border-radius: 10px" required>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="stok" style="color: black">Stok</label>
+                                            <input type="text" class="form-control" id="stok" name="stok"
+                                                style="color: black; border-radius: 10px" placeholder="Enter Stok"
+                                                value="{{ old('stok', $supplier->stok) }}" style="border-radius: 10px"
+                                                required>
+                                        </div>
+                                    </div>
 
                                     <div class="d-flex justify-content-end">
                                         <a href="{{ route('supplier.index') }}" class="btn btn-danger ms-auto">Kembali</a>

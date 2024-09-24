@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Bahan Masuk')
+@section('title', 'Stok Masuk')
 
 @section('content')
     <div class="content-body">
@@ -33,7 +33,6 @@
                                             <th style="color: black">Kode Bahan</th>
                                             <th style="color: black">Distributor</th>
                                             <th style="color: black">Nama Bahan</th>
-                                            <th style="color: black">Jenis Bahan</th>
                                             <th style="color: black">Tgl Masuk</th>
                                             <th style="color: black">Jumlah KG</th>
                                             <th style="color: black">Jumlah Gram</th>
@@ -44,21 +43,20 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr class="text-center">
-                                            @foreach ($bahan as $b)
+                                        @foreach ($bahan as $b)
+                                            <tr class="text-center">
                                                 <td style="color: black">{{ $loop->iteration }}</td>
-                                                <td style="color: black">{{ $b->kode_bahan }}</td>
+                                                <td style="color: black">{{ $b->supplier->kode_supplier }}</td>
                                                 <td style="color: black">{{ $b->supplier->nama_supplier }}</td>
-                                                <td style="color: black">{{ $b->nama_bahan }}</td>
-                                                <td style="color: black">{{ $b->jenis_bahan->jenis_bahan }}</td>
+                                                <td style="color: black">{{ $b->supplier->nama_bahan }}</td>
                                                 <td style="color: black">{{ $b->tgl_masuk }}</td>
                                                 <td style="color: black">{{ $b->harga_per_kg }}</td>
                                                 <td style="color: black">{{ $b->harga_per_g }}</td>
                                                 <td style="color: black">{{ $b->harga_total }}</td>
-                                                <td style="color: black">{{ $b->stok_bahan->jumlah_masuk }}</td>
+                                                <td style="color: black">{{ $b->supplier->stok }}</td>
                                                 <td style="color: black">{{ $b->keterangan }}</td>
                                                 <td>
-                                                    <a href="#" class="btn btn-primary btn-sm"
+                                                    <a href="{{ route('bahan_masuk.edit', $b->id) }}" class="btn btn-primary btn-sm"
                                                         style="border-radius:5px">
                                                         <i class="fas fa-edit"></i>
                                                     </a>
@@ -67,8 +65,8 @@
                                                         <i class="fas fa-trash"></i>
                                                     </button>
                                                 </td>
-                                            @endforeach
-                                        </tr>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

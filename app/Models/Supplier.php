@@ -16,5 +16,8 @@ class Supplier extends Model
         'nama_supplier',
         'alamat',
         'no_telepon',
+        'nama_bahan',
+        'stok',
     ];
+
 }

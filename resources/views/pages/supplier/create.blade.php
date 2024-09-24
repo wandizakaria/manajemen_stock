@@ -25,27 +25,43 @@
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
                                             <label for="kode_supplier" style="color: black">Kode Supplier</label>
-                                            <input type="text" class="form-control" id="kode_supplier" style="color: black"
-                                                name="kode_supplier" placeholder="Enter Kode Supplier"
-                                                style="border-radius: 10px" required>
+                                            <input type="text" class="form-control" id="kode_supplier"
+                                                style="color: black; border-radius: 10px" name="kode_supplier"
+                                                placeholder="Enter Kode Supplier" style="border-radius: 10px" required>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="nama_supplier" style="color: black">Nama Supplier</label>
-                                            <input type="text" class="form-control" id="nama_supplier" style="color: black"
-                                                name="nama_supplier" placeholder="Enter Nama Supplier"
-                                                style="border-radius: 10px" required>
+                                            <input type="text" class="form-control" id="nama_supplier"
+                                                style="color: black; border-radius: 10px" name="nama_supplier"
+                                                placeholder="Enter Nama Supplier" style="border-radius: 10px" required>
                                         </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
                                             <label for="alamat" style="color: black">Alamat</label>
-                                            <input type="text" class="form-control" id="alamat" name="alamat" style="color: black"
-                                                placeholder="Enter Alamat" style="border-radius: 10px" required>
+                                            <input type="text" class="form-control" id="alamat" name="alamat"
+                                                style="color: black; border-radius: 10px" placeholder="Enter Alamat"
+                                                style="border-radius: 10px" required>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="no_telepon" style="color: black">No Telepon</label>
-                                            <input type="text" class="form-control" id="no_telepon" name="no_telepon" style="color: black"
-                                                placeholder="Enter No Telepon" style="border-radius: 10px" required>
+                                            <input type="text" class="form-control" id="no_telepon" name="no_telepon"
+                                                style="color: black; border-radius: 10px" placeholder="Enter No Telepon"
+                                                style="border-radius: 10px" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="nama_bahan" style="color: black">Nama Bahan</label>
+                                            <input type="text" class="form-control" id="nama_bahan" name="nama_bahan"
+                                                style="color: black; border-radius: 10px" placeholder="Enter Nama Bahan"
+                                                style="border-radius: 10px" required>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="stok" style="color: black">Stok</label>
+                                            <input type="text" class="form-control" id="stok" name="stok"
+                                                style="color: black; border-radius: 10px" placeholder="Enter Stok"
+                                                style="border-radius: 10px" required>
                                         </div>
                                     </div>
 

@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Create Stok Masuk')
+@section('title', 'Edit Stok Masuk')
 
 @section('content')
     <div class="content-body">
@@ -18,7 +18,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Stok Masuk</h4>
+                            <h4 class="card-title">Data Stok Masuk</h4>
                             <div class="basic-form">
                                 <form action="{{ route('bahan_masuk.store') }}" method="POST">
                                     @csrf
@@ -29,7 +29,10 @@
                                                 style="border-radius: 10px" required>
                                                 <option value="">Pilih Kode Bahan</option>
                                                 @foreach ($supplier as $s)
-                                                    <option value="{{ $s->id }}">{{ $s->kode_supplier }}</option>
+                                                    <option value="{{ $s->id }}"
+                                                        {{ $s->id == $bahan->supplier_id ? 'selected' : '' }}>
+                                                        {{ $s->kode_supplier }}
+                                                    </option>
                                                 @endforeach
                                             </select>
 
@@ -40,8 +43,10 @@
                                                 style="border-radius: 10px" required>
                                                 <option value="">Pilih Distributor</option>
                                                 @foreach ($supplier as $s)
-                                                    <option value="{{ $s->id }}">
-                                                        {{ $s->nama_supplier }}</option>
+                                                    <option value="{{ $s->id }}"
+                                                        {{ $s->id == $bahan->supplier_id ? 'selected' : '' }}>
+                                                        {{ $s->nama_supplier }}
+                                                    </option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -53,33 +58,40 @@
                                                 style="border-radius: 10px" required>
                                                 <option value="">Pilih Nama Bahan</option>
                                                 @foreach ($supplier as $s)
-                                                    <option value="{{ $s->id }}">{{ $s->nama_bahan }}</option>
+                                                    <option value="{{ $s->id }}"
+                                                        {{ $s->id == $bahan->supplier_id ? 'selected' : '' }}>
+                                                        {{ $s->nama_bahan }}
+                                                    </option>
                                                 @endforeach
                                             </select>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="tgl_masuk">Tanggal Masuk</label>
                                             <input type="date" class="form-control" id="tgl_masuk" name="tgl_masuk"
-                                                placeholder="Enter Nama Bahan" style="border-radius: 10px" required>
+                                                placeholder="Enter Nama Bahan" style="border-radius: 10px" required
+                                                value="{{ $bahan->tgl_masuk }}">
                                         </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
                                             <label for="harga_per_kg">Jumlah Per Kg</label>
                                             <input type="text" class="form-control" id="harga_per_kg" name="harga_per_kg"
-                                                placeholder="Enter Jumlah Per Kg" style="border-radius: 10px" required>
+                                                placeholder="Enter Jumlah Per Kg" style="border-radius: 10px" required
+                                                value="{{ $bahan->harga_per_kg }}">
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="harga_per_g">Jumlah Per Gram</label>
                                             <input type="text" class="form-control" id="harga_per_g" name="harga_per_g"
-                                                placeholder="Enter Jumlah Per Gram" style="border-radius: 10px" required>
+                                                placeholder="Enter Jumlah Per Gram" style="border-radius: 10px" required
+                                                value="{{ $bahan->harga_per_g }}">
                                         </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
                                             <label for="harga_total">Total Harga</label>
                                             <input type="text" class="form-control" id="harga_total" name="harga_total"
-                                                placeholder="Enter Total Harga" style="border-radius: 10px" required>
+                                                placeholder="Enter Total Harga" style="border-radius: 10px" required
+                                                value="{{ $bahan->harga_total }}">
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="supplier_id">Stok Masuk</label>
@@ -87,7 +99,10 @@
                                                 style="border-radius: 10px" required>
                                                 <option value="">Pilih Stok</option>
                                                 @foreach ($supplier as $s)
-                                                    <option value="{{ $s->id }}">{{ $s->stok }}</option>
+                                                    <option value="{{ $s->id }}"
+                                                        {{ $s->id == $bahan->supplier_id ? 'selected' : '' }}>
+                                                        {{ $s->stok }}
+                                                    </option>
                                                 @endforeach
                                             </select>
                                         </div>

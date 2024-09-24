@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('nama_supplier');
             $table->string('alamat');
             $table->string('no_telepon');
+            $table->string('nama_bahan');
+            $table->string('stok');
             $table->timestamps();
         });
     }

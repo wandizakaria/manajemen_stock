@@ -12,6 +12,6 @@ class JenisBahan extends Model
     protected $table = 'jenis_bahan';
 
     protected $fillable = [
-        'jenis_bahan',
+        'jenis',
     ];
 }

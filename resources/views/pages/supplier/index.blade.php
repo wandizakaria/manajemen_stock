@@ -34,6 +34,8 @@
                                             <th style="color: black">Nama Supplier</th>
                                             <th style="color: black">Alamat</th>
                                             <th style="color: black">No Telepon</th>
+                                            <th style="color: black">Nama Bahan</th>
+                                            <th style="color: black">Stok</th>
                                             <th style="color: black">Aksi</th>
                                         </tr>
                                     </thead>
@@ -45,6 +47,8 @@
                                                 <td style="color: black">{{ $s->nama_supplier }}</td>
                                                 <td style="color: black">{{ $s->alamat }}</td>
                                                 <td style="color: black">{{ $s->no_telepon }}</td>
+                                                <td style="color: black">{{ $s->nama_bahan }}</td>
+                                                <td style="color: black">{{ $s->stok }}</td>
                                                 <td>
                                                     <a href="{{ route('supplier.edit', $s->id) }}"
                                                         class="btn btn-primary btn-sm" style="border-radius:5px">

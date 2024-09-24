@@ -28,10 +28,10 @@
             <li class="nav-label">Inventory</li>
             <li>
                 <a href="{{ route('bahan_masuk.index') }}" aria-expanded="false">
-                    <i class="fas fa-sign-in-alt menu-icon"></i><span class="nav-text">Bahan Masuk</span>
+                    <i class="fas fa-arrow-circle-down menu-icon"></i><span class="nav-text">Stok Masuk</span>
                 </a>
                 <a href="{{ route('stok_bahan.index') }}" aria-expanded="false">
-                    <i class="fas fa-boxes menu-icon"></i><span class="nav-text">Stok Bahan</span>
+                    <i class="fas fa-box-open menu-icon"></i><span class="nav-text">Stok Jadi</span>
                 </a>
                 <a href="{{ route('produksi.index') }}" aria-expanded="false">
                     <i class="fas fa-truck menu-icon"></i><span class="nav-text">Produksi</span>

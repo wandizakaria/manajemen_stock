@@ -34,7 +34,9 @@ class SupplierController extends Controller
             'kode_supplier' => 'required|string|max:255',
             'nama_supplier' => 'required|string|max:255',
             'alamat' => 'required|string|max:255',
-            'no_telepon' => 'required|string|max:15', // Sesuaikan dengan panjang yang diinginkan
+            'no_telepon' => 'required|string|max:15', 
+            'nama_bahan' => 'required|string|max:255',
+            'stok' => 'required|string|max:255',
         ]);
 
         // Simpan data
@@ -43,10 +45,12 @@ class SupplierController extends Controller
             'nama_supplier' => $request->nama_supplier,
             'alamat' => $request->alamat,
             'no_telepon' => $request->no_telepon,
+            'nama_bahan' => $request->nama_bahan,
+            'stok' => $request->stok,
         ]);
 
         // Redirect setelah menyimpan
-        return redirect()->route('supplier.index')->with('success', 'Supplier berhasil ditambahkan.');
+        return redirect()->route('supplier.index')->with('success', 'Data supplier berhasil ditambahkan.');
     }
 
     /**
@@ -81,6 +85,8 @@ class SupplierController extends Controller
             'nama_supplier' => 'required|string|max:255',
             'alamat' => 'required|string|max:255',
             'no_telepon' => 'required|string|max:15',
+            'nama_bahan' => 'required|string|max:255',
+            'stok' => 'required|string|max:255',
         ]);
 
         // Temukan supplier berdasarkan ID
@@ -92,10 +98,12 @@ class SupplierController extends Controller
             'nama_supplier' => $request->nama_supplier,
             'alamat' => $request->alamat,
             'no_telepon' => $request->no_telepon,
+            'nama_bahan' => $request->nama_bahan,
+            'stok' => $request->stok,
         ]);
 
         // Redirect setelah memperbarui
-        return redirect()->route('supplier.index')->with('success', 'Supplier berhasil diperbarui.');
+        return redirect()->route('supplier.index')->with('success', 'Data supplier berhasil diperbarui.');
     }
 
 
@@ -106,6 +114,6 @@ class SupplierController extends Controller
     {
         $supplier->delete();
 
-        return redirect()->route('supplier.index')->with('success', 'Supplier berhasil diperbarui.');
+        return redirect()->route('supplier.index')->with('success', 'Data supplier berhasil diperbarui.');
     }
 }
