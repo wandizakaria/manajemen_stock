@@ -24,9 +24,9 @@
                                     @csrf
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
-                                            <label for="supplier_id">Kode Bahan</label>
+                                            <label for="supplier_id" style="color: black">Kode Bahan</label>
                                             <select class="form-control" id="supplier_id" name="supplier_id"
-                                                style="border-radius: 10px" required>
+                                                style="color: black" style="border-radius: 10px" required>
                                                 <option value="">Pilih Kode Bahan</option>
                                                 @foreach ($supplier as $s)
                                                     <option value="{{ $s->id }}">{{ $s->kode_supplier }}</option>
@@ -35,9 +35,9 @@
 
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label for="supplier_id">Distributor</label>
+                                            <label for="supplier_id" style="color: black">Distributor</label>
                                             <select class="form-control" id="supplier_id" name="supplier_id"
-                                                style="border-radius: 10px" required>
+                                                style="color: black" style="border-radius: 10px" required>
                                                 <option value="">Pilih Distributor</option>
                                                 @foreach ($supplier as $s)
                                                     <option value="{{ $s->id }}">
@@ -48,9 +48,9 @@
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
-                                            <label for="supplier_id">Nama Bahan</label>
+                                            <label for="supplier_id" style="color: black">Nama Bahan</label>
                                             <select class="form-control" id="supplier_id" name="supplier_id"
-                                                style="border-radius: 10px" required>
+                                                style="color: black" style="border-radius: 10px" required>
                                                 <option value="">Pilih Nama Bahan</option>
                                                 @foreach ($supplier as $s)
                                                     <option value="{{ $s->id }}">{{ $s->nama_bahan }}</option>
@@ -58,33 +58,37 @@
                                             </select>
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label for="tgl_masuk">Tanggal Masuk</label>
+                                            <label for="tgl_masuk" style="color: black">Tanggal Masuk</label>
                                             <input type="date" class="form-control" id="tgl_masuk" name="tgl_masuk"
-                                                placeholder="Enter Nama Bahan" style="border-radius: 10px" required>
+                                                placeholder="Enter Nama Bahan" style="border-radius: 10px; color: black"
+                                                required>
                                         </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
-                                            <label for="harga_per_kg">Jumlah Per Kg</label>
+                                            <label for="harga_per_kg" style="color: black">Jumlah Per Kg</label>
                                             <input type="text" class="form-control" id="harga_per_kg" name="harga_per_kg"
-                                                placeholder="Enter Jumlah Per Kg" style="border-radius: 10px" required>
+                                                placeholder="Enter Jumlah Per Kg" style="border-radius: 10px; color: black"
+                                                required>
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label for="harga_per_g">Jumlah Per Gram</label>
+                                            <label for="harga_per_g" style="color: black">Jumlah Per Gram</label>
                                             <input type="text" class="form-control" id="harga_per_g" name="harga_per_g"
-                                                placeholder="Enter Jumlah Per Gram" style="border-radius: 10px" required>
+                                                placeholder="Enter Jumlah Per Gram"
+                                                style="border-radius: 10px; color: black" required>
                                         </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
-                                            <label for="harga_total">Total Harga</label>
+                                            <label for="harga_total" style="color: black">Total Harga</label>
                                             <input type="text" class="form-control" id="harga_total" name="harga_total"
-                                                placeholder="Enter Total Harga" style="border-radius: 10px" required>
+                                                placeholder="Enter Total Harga" style="border-radius: 10px; color: black"
+                                                required>
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label for="supplier_id">Stok Masuk</label>
+                                            <label for="supplier_id" style="color: black">Stok Masuk</label>
                                             <select class="form-control" id="supplier_id" name="supplier_id"
-                                                style="border-radius: 10px" required>
+                                                style="color: black" style="border-radius: 10px" required>
                                                 <option value="">Pilih Stok</option>
                                                 @foreach ($supplier as $s)
                                                     <option value="{{ $s->id }}">{{ $s->stok }}</option>
@@ -94,7 +98,7 @@
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
-                                            <label for="keterangan">Keterangan</label>
+                                            <label for="keterangan" style="color: black">Keterangan</label>
                                             <textarea class="form-control" id="keterangan" name="keterangan" placeholder="Enter Keterangan"
                                                 style="border-radius: 10px;" required></textarea>
                                         </div>

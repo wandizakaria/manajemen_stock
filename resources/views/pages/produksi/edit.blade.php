@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Create Stok Bahan')
+@section('title', 'Edit Produksi')
 
 @section('content')
     <div class="content-body">
@@ -8,8 +8,8 @@
             <div class="col p-md-0">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('home.index') }}">Dashboard</a></li>
-                    <li class="breadcrumb-item active"><a href="{{ route('stok_bahan.index') }}">Stok Bahan</a></li>
-                    <li class="breadcrumb-item active"><a href="{{ route('stok_bahan.create') }}">create</a></li>
+                    <li class="breadcrumb-item active"><a href="{{ route('produksi.index') }}">Produksi</a></li>
+                    <li class="breadcrumb-item active"><a href="#">Edit</a></li>
                 </ol>
             </div>
         </div>
@@ -18,56 +18,43 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Stok Bahan</h4>
+                            <h4 class="card-title">Edit Data Produksi</h4>
                             <div class="basic-form">
-                                <form action="{{ route('stok_bahan.store') }}" method="POST">
+                                <form action="{{ route('produksi.update', $produksi->id) }}" method="POST">
                                     @csrf
+                                    @method('PUT')
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
-                                            <label for="bahan_id" style="color: black">Nama Bahan</label>
-                                            <select class="form-control" id="bahan_id" name="bahan_id"
-                                                style="border-radius: 10px; color: black" required>
-                                                <option value="">Pilih Nama Bahan</option>
-                                                @foreach ($bahan_masuk as $bahan)
-                                                    <option value="{{ $bahan->id }}">{{ $bahan->supplier->nama_bahan }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
+                                            <label for="jenis_produksi" style="color: black">Jenis Produksi</label>
+                                            <input type="text" class="form-control" id="jenis_produksi"
+                                                name="jenis_produksi" placeholder="Enter Jenis Produksi"
+                                                value="{{ old('jenis_produksi', $produksi->jenis_produksi) }}"
+                                                style="border-radius: 10px" required>
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label for="jenis" style="color: black">Jenis Bahan</label>
-                                            <input type="text" class="form-control" id="jenis" name="jenis"
-                                                placeholder="Enter Jenis Bahan" style="border-radius: 10px" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="form-group col-md-6">
-                                            <label for="jumlah_gram" style="color: black">Jumlah Per Gram</label>
-                                            <input type="text" class="form-control" id="jumlah_gram" name="jumlah_gram"
-                                                placeholder="Enter Jumlah Per Gram" style="border-radius: 10px" required>
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <label for="jumlah_keluar" style="color: black">Jumlah Keluar</label>
-                                            <input type="text" class="form-control" id="jumlah_keluar"
-                                                name="jumlah_keluar" placeholder="Enter Jumlah Keluar"
+                                            <label for="jumlah_produksi" style="color: black">Jumlah Produksi</label>
+                                            <input type="text" class="form-control" id="jumlah_produksi"
+                                                name="jumlah_produksi" placeholder="Enter Jumlah Produksi"
+                                                value="{{ old('jumlah_produksi', $produksi->jumlah_produksi) }}"
                                                 style="border-radius: 10px" required>
                                         </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
-                                            <label for="tgl_keluar" style="color: black">Tanggal Keluar</label>
-                                            <input type="date" class="form-control" id="tgl_keluar" name="tgl_keluar"
+                                            <label for="tgl_produksi" style="color: black">Tanggal Produksi</label>
+                                            <input type="date" class="form-control" id="tgl_produksi" name="tgl_produksi"
+                                                value="{{ old('tgl_produksi', $produksi->tgl_produksi) }}"
                                                 style="border-radius: 10px" required>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="keterangan" style="color: black">Keterangan</label>
                                             <textarea class="form-control" id="keterangan" name="keterangan" placeholder="Enter Keterangan"
-                                                style="border-radius: 10px;" required></textarea>
+                                                style="border-radius: 10px;" required>{{ old('keterangan', $produksi->keterangan) }}</textarea>
                                         </div>
                                     </div>
 
                                     <div class="d-flex justify-content-end">
-                                        <a href="{{ route('stok_bahan.index') }}" class="btn btn-danger ms-auto">Kembali</a>
+                                        <a href="{{ route('produksi.index') }}" class="btn btn-danger ms-auto">Kembali</a>
                                         <span style="margin-right: 5px"></span>
                                         <button type="submit" class="btn btn-primary ms-auto">Simpan</button>
                                     </div>

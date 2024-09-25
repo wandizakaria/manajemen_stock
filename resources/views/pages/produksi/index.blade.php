@@ -19,7 +19,7 @@
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-center">
                                 <h4 class="card-title">Data Produksi</h4>
-                                <a href="#" class="btn btn-primary">
+                                <a href="{{ route('produksi.create') }}" class="btn btn-primary">
                                     <i class="fas fa-plus" style="margin-right: 5px;"></i>
                                     <span>Tambah Data Produksi</span>
                                 </a>
@@ -28,7 +28,7 @@
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered zero-configuration">
                                     <thead>
-                                        <tr>
+                                        <tr class="text-center text-dark">
                                             <th>No</th>
                                             <th>Jenis Produksi</th>
                                             <th>Jumlah Produksi</th>
@@ -39,21 +39,27 @@
                                         </tr>
                                     <tbody>
                                         @foreach ($produksi as $p)
-                                            <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $p->jenis_produksi }}</td>
-                                            <td>{{ $p->jumlah_produksi }}</td>
-                                            <td>{{ $p->tgl_produksi }}</td>
-                                            <td>{{ $p->keterangan }}</td>
-
-                                            <td>
-
-                                                <a href="" class="btn btn-primary btn-sm" style="border-radius:5px">
-                                                    <i class="fas fa-edit"></i>
-                                                </a>
-                                                <button type="button" class="btn btn-danger btn-sm" style="border-radius:5px">
-                                                    <i class="fas fa-trash"></i>
-                                                </button>
-                                            </td>
+                                            <tr class="text-center text-dark">
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $p->jenis_produksi }}</td>
+                                                <td>{{ $p->jumlah_produksi }}</td>
+                                                <td>{{ $p->tgl_produksi }}</td>
+                                                <td>{{ $p->keterangan }}</td>
+                                                <td>
+                                                    <a href="{{ route('produksi.edit', $p->id) }}"
+                                                        class="btn btn-primary btn-sm" style="border-radius:5px">
+                                                        <i class="fas fa-edit"></i>
+                                                    </a>
+                                                    <form action="{{ route('produksi.destroy', $p->id) }}" method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-danger btn-sm"
+                                                            onclick="confirm('Apakah Anda yakin ingin menghapus data produksi ini?')"
+                                                            style="border-radius:5px">
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
+                                                    </form>
+                                                </td>
                                             </tr>
                                         @endforeach
                                     </tbody>

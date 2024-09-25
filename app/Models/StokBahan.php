@@ -13,7 +13,7 @@ class StokBahan extends Model
 
     protected $fillable = [
         'bahan_id',
-        'jenis_id',
+        'jenis',
         'jumlah_gram',
         'jumlah_keluar',
         'tgl_keluar',
@@ -25,8 +25,8 @@ class StokBahan extends Model
         return $this->belongsTo(Bahan::class, 'bahan_id');
     }
 
-    public function jenis_bahan()
-    {
-        return $this->belongsTo(JenisBahan::class, 'jenis_id');
-    }
+    // public function jenis_bahan()
+    // {
+    //     return $this->belongsTo(JenisBahan::class, 'jenis_id');
+    // }
 }

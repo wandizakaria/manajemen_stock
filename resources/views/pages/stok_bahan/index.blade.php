@@ -17,7 +17,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                             <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex justify-content-between align-items-center">
                                 <h4 class="card-title">Data Stok Bahan</h4>
                                 <a href="{{ route('stok_bahan.create') }}" class="btn btn-primary">
                                     <i class="fas fa-plus" style="margin-right: 5px;"></i>
@@ -44,18 +44,19 @@
                                             <tr class="text-center text-dark">
                                                 <td style="color: black">{{ $loop->iteration }}</td>
                                                 <td style="color: black">{{ $s->bahan->supplier->nama_bahan }}</td>
-                                                <td style="color: black">{{ $s->jenis_bahan->jenis }}</td>
+                                                <td style="color: black">{{ $s->jenis }}</td>
                                                 <td style="color: black">{{ $s->bahan->harga_per_g }}</td>
                                                 <td style="color: black">{{ $s->jumlah_keluar }}</td>
                                                 <td style="color: black">{{ $s->tgl_keluar }}</td>
                                                 <td style="color: black">{{ $s->keterangan }}</td>
                                                 <td>
-                                                    <form action="">
-                                                        <a href="{{ route('stok_bahan.edit', $s->id) }}" class="btn btn-primary btn-sm" style="border-radius:5px">
-                                                            <i class="fas fa-edit"></i>
-                                                        </a>
-                                                        <span style="margin-right: 5px"></span>
-                                                        <button class="btn btn-danger btn-sm" style="border-radius:5px">
+                                                    <form action="{{ route('stok_bahan.destroy', $s->id) }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit"
+                                                            onclick="return confirm('Apakah Anda yakin ingin menghapus stok bahan ini?')"
+                                                            class="btn btn-danger btn-sm" style="border-radius:5px">
                                                             <i class="fas fa-trash"></i>
                                                         </button>
                                                     </form>

@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('stok_bahan', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('bahan_id');
-            $table->unsignedBigInteger('jenis_id');
+            // $table->unsignedBigInteger('jenis_id');
+            $table->string('jenis');
             $table->string('jumlah_gram');
             $table->string('jumlah_keluar');
             $table->date('tgl_keluar');
@@ -22,7 +23,7 @@ return new class extends Migration
             $table->timestamps();
 
             $table->foreign('bahan_id')->references('id')->on('bahan')->onDelete('cascade');
-            $table->foreign('jenis_id')->references('id')->on('jenis_bahan')->onDelete('cascade');
+            // $table->foreign('jenis_id')->references('id')->on('jenis_bahan')->onDelete('cascade');
         });
     }
 

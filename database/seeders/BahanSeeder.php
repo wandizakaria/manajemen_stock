@@ -17,8 +17,8 @@ class BahanSeeder extends Seeder
             'supplier_id' => 1,
             'tgl_masuk' => '2024-09-19',
             'harga_total' => "15.000",
-            'harga_per_kg' => 15000.00,
-            'harga_per_g' => 15.00,
+            'harga_per_kg' => 15,
+            'harga_per_g' => 15.000,
             'keterangan' => 'Gula pasir untuk produksi',
         ]);
     }

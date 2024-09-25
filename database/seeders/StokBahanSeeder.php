@@ -16,7 +16,7 @@ class StokBahanSeeder extends Seeder
     {
         StokBahan::create([
             'bahan_id' => 1,
-            'jenis_id' => 1,
+            'jenis' => 'Bahan Kue',
             'jumlah_gram' => '1000',
             'jumlah_keluar' => '250',
             'tgl_keluar' => Carbon::createFromFormat('Y-m-d', '2024-05-12')->format('Y-m-d'),

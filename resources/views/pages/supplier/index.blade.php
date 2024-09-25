@@ -28,15 +28,15 @@
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered zero-configuration">
                                     <thead>
-                                        <tr class="text-center">
-                                            <th style="color: black">No</th>
-                                            <th style="color: black">Kode Supplier</th>
-                                            <th style="color: black">Nama Supplier</th>
-                                            <th style="color: black">Alamat</th>
-                                            <th style="color: black">No Telepon</th>
-                                            <th style="color: black">Nama Bahan</th>
-                                            <th style="color: black">Stok</th>
-                                            <th style="color: black">Aksi</th>
+                                        <tr class="text-center text-dark">
+                                            <th>No</th>
+                                            <th>Kode Supplier</th>
+                                            <th>Nama Supplier</th>
+                                            <th>Alamat</th>
+                                            <th>No Telepon</th>
+                                            <th>Nama Bahan</th>
+                                            <th>Stok</th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>

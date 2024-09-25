@@ -15,5 +15,6 @@ class Produksi extends Model
         'jenis_produksi',
         'jumlah_produksi',
         'tgl_produksi',
+        'keterangan',
     ];
 }

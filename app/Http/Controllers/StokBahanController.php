@@ -7,6 +7,7 @@ use App\Models\JenisBahan;
 use Illuminate\Http\Request;
 use App\Models\StokBahan;
 use App\Models\Supplier;
+use Illuminate\Support\Facades\Log;
 
 class StokBahanController extends Controller
 {
@@ -15,10 +16,9 @@ class StokBahanController extends Controller
      */
     public function index()
     {
-        $jenis_bahan = JenisBahan::all();
         $bahan_masuk = Bahan::all();
         $stok_bahan = StokBahan::all();
-        return view('pages.stok_bahan.index', compact('stok_bahan', 'bahan_masuk', 'jenis_bahan'));
+        return view('pages.stok_bahan.index', compact('stok_bahan', 'bahan_masuk'));
     }
 
     /**
@@ -27,8 +27,7 @@ class StokBahanController extends Controller
     public function create()
     {
         $bahan_masuk = Bahan::with('supplier')->get();
-        $jenis_bahan = JenisBahan::all();
-        return view('pages.stok_bahan.create', compact('bahan_masuk', 'jenis_bahan'));
+        return view('pages.stok_bahan.create', compact('bahan_masuk'));
     }
 
     /**
@@ -36,63 +35,54 @@ class StokBahanController extends Controller
      */
     public function store(Request $request)
     {
-        // Validasi input dari form
         $request->validate([
-            'bahan_id' => 'required|exists:bahan,id',
-            'jenis_id' => 'required|exists:jenis_bahan,id',
-            'jumlah_keluar' => 'required|integer|min:1',
+            'bahan_id' => 'required',
+            'jenis' => 'required',
+            'jumlah_gram' => 'required|numeric',
+            'jumlah_keluar' => 'required|numeric',
             'tgl_keluar' => 'required|date',
-            'keterangan' => 'nullable|string',
+            'keterangan' => 'required|string',
         ]);
 
-        // Temukan bahan yang akan dikurangi stoknya
-        $bahan = Bahan::find($request->bahan_id);
-        if (!$bahan) {
-            return redirect()->back()->with('error', 'Bahan tidak ditemukan.');
+        $bahanMasuk = Bahan::find($request->bahan_id);
+
+        if ($bahanMasuk) {
+            $supplier = $bahanMasuk->supplier;
+
+            if ($supplier) {
+                $supplier->stok -= $request->jumlah_keluar;
+
+                if ($supplier->stok < 0) {
+                    return redirect()->back()->with('error', 'Stok tidak mencukupi untuk pengurangan.');
+                }
+
+                $supplier->save();
+
+                $bahanMasuk->harga_per_g -= $request->jumlah_gram;
+
+                if ($bahanMasuk->harga_per_g < 0) {
+                    return redirect()->back()->with('error', 'Jumlah gram tidak mencukupi.');
+                }
+
+                $bahanMasuk->save();
+
+                $stokBahan = new StokBahan();
+                $stokBahan->bahan_id = $request->bahan_id;
+                $stokBahan->jenis = $request->jenis;
+                $stokBahan->jumlah_gram = $request->jumlah_gram;
+                $stokBahan->jumlah_keluar = $request->jumlah_keluar;
+                $stokBahan->tgl_keluar = $request->tgl_keluar;
+                $stokBahan->keterangan = $request->keterangan;
+                $stokBahan->save();
+
+                return redirect()->route('stok_bahan.index')->with('success', 'Data stok bahan dan jumlah gram berhasil dikurangi.');
+            } else {
+                return redirect()->back()->with('error', 'Supplier tidak ditemukan.');
+            }
         }
 
-        // Ambil data supplier dari bahan
-        $supplier = $bahan->supplier; // Assuming `supplier` is a relationship method
-
-        // Cek stok di supplier dalam satuan gram
-        $stok_gram = $supplier->stok;
-
-        // Cek apakah stok mencukupi
-        if ($stok_gram < $request->jumlah_keluar) {
-            return redirect()->back()->with('error', 'Stok bahan tidak mencukupi.');
-        }
-
-        // Kurangi stok bahan di supplier
-        $stok_gram -= $request->jumlah_keluar;
-
-        // Simpan stok yang sudah dikurangi ke dalam supplier
-        $supplier->stok = $stok_gram;
-
-        // Debug: Check if supplier is saved successfully
-        if (!$supplier->save()) {
-            return redirect()->back()->with('error', 'Gagal mengurangi stok.');
-        }
-
-        // Simpan data transaksi ke stok_bahan
-        $stokBahan = StokBahan::create([
-            'bahan_id' => $request->bahan_id,
-            'jenis_id' => $request->jenis_id,
-            'jumlah_gram' => $request->jumlah_keluar,
-            'tgl_keluar' => $request->tgl_keluar,
-            'keterangan' => $request->keterangan,
-        ]);
-
-        // Debug: Check if stokBahan is saved successfully
-        if (!$stokBahan) {
-            return redirect()->back()->with('error', 'Gagal menyimpan data transaksi.');
-        }
-
-        return redirect()->route('stok_bahan.index')->with('success', 'Stok berhasil dikurangi.');
+        return redirect()->back()->with('error', 'Data Bahan Masuk tidak ditemukan.');
     }
-
-
-
-
 
     /**
      * Display the specified resource.
@@ -121,8 +111,10 @@ class StokBahanController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(StokBahan $stok_bahan)
     {
-        //
+        $stok_bahan->delete();
+
+        return redirect()->route('stok_bahan.index')->with('success', 'Data stok bahan berhasil dihapus.');
     }
 }

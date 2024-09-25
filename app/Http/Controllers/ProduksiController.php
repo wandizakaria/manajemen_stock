@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Produksi;
+use App\Models\StokBahan;
 
 class ProduksiController extends Controller
 {
@@ -13,7 +14,7 @@ class ProduksiController extends Controller
     public function index()
     {
         $produksi = Produksi::all();
-        return View('pages.produksi.index', ['produksi' =>$produksi]);
+        return View('pages.produksi.index', ['produksi' => $produksi]);
     }
 
     /**
@@ -21,7 +22,8 @@ class ProduksiController extends Controller
      */
     public function create()
     {
-        //
+        $produksi = Produksi::all();
+        return view('pages.produksi.create', compact('produksi'));
     }
 
     /**
@@ -29,8 +31,24 @@ class ProduksiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'jenis_produksi' => 'required|string|max:255',
+            'jumlah_produksi' => 'required|numeric',
+            'tgl_produksi' => 'required|date',
+            'keterangan' => 'required|string|max:500',
+        ]);
+
+        $produksi = new Produksi();
+        $produksi->jenis_produksi = $request->jenis_produksi;
+        $produksi->jumlah_produksi = $request->jumlah_produksi;
+        $produksi->tgl_produksi = $request->tgl_produksi;
+        $produksi->keterangan = $request->keterangan;
+
+        $produksi->save();
+
+        return redirect()->route('produksi.index')->with('success', 'Data produksi berhasil disimpan.');
     }
+
 
     /**
      * Display the specified resource.
@@ -45,7 +63,9 @@ class ProduksiController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $produksi = Produksi::findOrFail($id);
+
+        return view('pages.produksi.edit', compact('produksi'));
     }
 
     /**
@@ -53,14 +73,33 @@ class ProduksiController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'jenis_produksi' => 'required|string|max:255',
+            'jumlah_produksi' => 'required|numeric',
+            'tgl_produksi' => 'required|date',
+            'keterangan' => 'required|string|max:500',
+        ]);
+
+        $produksi = Produksi::findOrFail($id);
+
+        $produksi->jenis_produksi = $request->jenis_produksi;
+        $produksi->jumlah_produksi = $request->jumlah_produksi;
+        $produksi->tgl_produksi = $request->tgl_produksi;
+        $produksi->keterangan = $request->keterangan;
+
+        $produksi->save();
+
+        return redirect()->route('produksi.index')->with('success', 'Data produksi berhasil diupdate.');
     }
+
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Produksi $produksi)
     {
-        //
+        $produksi->delete();
+
+        return redirect()->route('produksi.index')->with('success', 'Data produksi berhasil dihapus.');
     }
 }
