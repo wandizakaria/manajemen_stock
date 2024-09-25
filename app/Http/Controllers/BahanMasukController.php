@@ -30,13 +30,12 @@ class BahanMasukController extends Controller
      */
     public function store(Request $request)
     {
-        // Validasi input sesuai dengan field yang ada di form
         $request->validate([
             'kode_bahan' => '',
             'nama_bahan' => '',
             'stok_bahan_id' => '',
-            'jenis_bahan_id' => '', // Mengubah ke string sesuai input form
-            'supplier_id' => '', // Mengubah ke string sesuai input form
+            'jenis_bahan_id' => '', 
+            'supplier_id' => '', 
             'tgl_masuk' => '',
             'harga_total' => '',
             'harga_per_kg' => '',
@@ -44,15 +43,10 @@ class BahanMasukController extends Controller
             'keterangan' => '',
         ]);
 
-        // Membuat data baru di tabel 'bahan'
         Bahan::create($request->all());
 
-        // Redirect ke halaman index dengan pesan sukses
         return redirect()->route('bahan_masuk.index')->with('success', 'Data berhasil dibuat.');
     }
-
-
-
 
     /**
      * Display the specified resource.

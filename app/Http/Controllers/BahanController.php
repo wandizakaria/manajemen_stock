@@ -62,13 +62,11 @@ class BahanController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Bahan $bahan)
+    public function edit(Bahan $bahan_masuk)
     {
         $supplier = Supplier::all();
-        return view('pages.bahan_masuk.edit', compact('bahan', 'supplier'));
+        return view('pages.bahan_masuk.edit', compact('bahan_masuk', 'supplier'));
     }
-
-
 
 
     /**
@@ -76,14 +74,36 @@ class BahanController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'supplier_id' => 'required',
+            'tgl_masuk' => 'required|date',
+            'harga_per_kg' => 'required|numeric',
+            'harga_per_g' => 'required|numeric',
+            'harga_total' => 'required|numeric',
+            'keterangan' => 'required|string',
+        ]);
+
+        $bahan = Bahan::findOrFail($id);
+
+        $bahan->supplier_id = $request->input('supplier_id');
+        $bahan->tgl_masuk = $request->input('tgl_masuk');
+        $bahan->harga_per_kg = $request->input('harga_per_kg');
+        $bahan->harga_per_g = $request->input('harga_per_g');
+        $bahan->harga_total = $request->input('harga_total');
+        $bahan->keterangan = $request->input('keterangan');
+
+        $bahan->save();
+
+        return redirect()->route('bahan_masuk.index')->with('success', 'Data bahan berhasil diperbarui!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Bahan $bahan_masuk)
     {
-        //
+        $bahan_masuk->delete();
+        
+        return redirect()->route('bahan_masuk.index')->with('success', 'Data bahan berhasil dihapus!');
     }
 }

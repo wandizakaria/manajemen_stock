@@ -19,7 +19,7 @@
                         <div class="card-body">
                              <div class="d-flex justify-content-between align-items-center">
                                 <h4 class="card-title">Data Stok Bahan</h4>
-                                <a href="#" class="btn btn-primary">
+                                <a href="{{ route('stok_bahan.create') }}" class="btn btn-primary">
                                     <i class="fas fa-plus" style="margin-right: 5px;"></i>
                                     <span>Tambah Data Stok Bahan</span>
                                 </a>
@@ -28,7 +28,7 @@
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered zero-configuration">
                                     <thead>
-                                        <tr>
+                                        <tr class="text-center text-dark">
                                             <th>No</th>
                                             <th>Nama Bahan</th>
                                             <th>Jenis Bahan</th>
@@ -40,19 +40,18 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {{-- @foreach ($stokbahan as $s) --}}
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-
+                                        @foreach ($stok_bahan as $s)
+                                            <tr class="text-center text-dark">
+                                                <td style="color: black">{{ $loop->iteration }}</td>
+                                                <td style="color: black">{{ $s->bahan->supplier->nama_bahan }}</td>
+                                                <td style="color: black">{{ $s->jenis_bahan->jenis }}</td>
+                                                <td style="color: black">{{ $s->bahan->harga_per_g }}</td>
+                                                <td style="color: black">{{ $s->jumlah_keluar }}</td>
+                                                <td style="color: black">{{ $s->tgl_keluar }}</td>
+                                                <td style="color: black">{{ $s->keterangan }}</td>
                                                 <td>
                                                     <form action="">
-                                                        <a href="" class="btn btn-primary btn-sm" style="border-radius:5px">
+                                                        <a href="{{ route('stok_bahan.edit', $s->id) }}" class="btn btn-primary btn-sm" style="border-radius:5px">
                                                             <i class="fas fa-edit"></i>
                                                         </a>
                                                         <span style="margin-right: 5px"></span>
@@ -62,7 +61,7 @@
                                                     </form>
                                                 </td>
                                             </tr>
-                                        {{-- @endforeach --}}
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

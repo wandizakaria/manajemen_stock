@@ -28,23 +28,23 @@
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered zero-configuration">
                                     <thead>
-                                        <tr class="text-center">
-                                            <th style="color: black">No</th>
-                                            <th style="color: black">Kode Bahan</th>
-                                            <th style="color: black">Distributor</th>
-                                            <th style="color: black">Nama Bahan</th>
-                                            <th style="color: black">Tgl Masuk</th>
-                                            <th style="color: black">Jumlah KG</th>
-                                            <th style="color: black">Jumlah Gram</th>
-                                            <th style="color: black">Total Harga</th>
-                                            <th style="color: black">Stok Masuk</th>
-                                            <th style="color: black">Keterangan</th>
-                                            <th style="color: black">Aksi</th>
+                                        <tr class="text-center text-dark">
+                                            <th>No</th>
+                                            <th>Kode Bahan</th>
+                                            <th>Distributor</th>
+                                            <th>Nama Bahan</th>
+                                            <th>Tgl Masuk</th>
+                                            <th>Jumlah KG</th>
+                                            <th>Jumlah Gram</th>
+                                            <th>Total Harga</th>
+                                            <th>Stok Masuk</th>
+                                            <th>Keterangan</th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach ($bahan as $b)
-                                            <tr class="text-center">
+                                            <tr class="text-center text-dark">
                                                 <td style="color: black">{{ $loop->iteration }}</td>
                                                 <td style="color: black">{{ $b->supplier->kode_supplier }}</td>
                                                 <td style="color: black">{{ $b->supplier->nama_supplier }}</td>
@@ -61,9 +61,15 @@
                                                         <i class="fas fa-edit"></i>
                                                     </a>
                                                     <span style="margin-right: 5px"></span>
-                                                    <button class="btn btn-danger btn-sm" style="border-radius:5px">
-                                                        <i class="fas fa-trash"></i>
-                                                    </button>
+                                                    <form action="{{ route('bahan_masuk.destroy', $b->id) }}" method="POST"
+                                                        style="display:inline;">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button class="btn btn-danger btn-sm" style="border-radius:5px"
+                                                            onclick="return confirm('Apakah Anda yakin ingin menghapus supplier ini?')">
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
+                                                    </form>
                                                 </td>
                                             </tr>
                                         @endforeach

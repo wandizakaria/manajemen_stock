@@ -77,31 +77,25 @@ class ManajemenUserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        // Validasi input
         $request->validate([
             'name' => 'required|string|max:255',
             'username' => 'required|string|max:255|unique:users,username,' . $id,
             'level' => 'required|string',
-            'password' => 'nullable|string|min:8', // Password boleh kosong jika tidak ingin diubah
+            'password' => 'nullable|string|min:8',
         ]);
 
-        // Cari user berdasarkan id
         $user = User::findOrFail($id);
 
-        // Update data user
         $user->name = $request->input('name');
         $user->username = $request->input('username');
         $user->level = $request->input('level');
 
-        // Jika password diisi, update passwordnya
         if ($request->filled('password')) {
             $user->password = bcrypt($request->input('password'));
         }
 
-        // Simpan perubahan
         $user->save();
 
-        // Redirect ke halaman manajemen user dengan pesan sukses
         return redirect()->route('manajemen_user.index')->with('success', 'Data user berhasil diperbarui.');
     }
 

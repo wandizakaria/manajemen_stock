@@ -19,8 +19,8 @@ class DatabaseSeeder extends Seeder
             SupplierSeeder::class,
             JenisBahanSeeder::class,
             ProduksiSeeder::class,
-            StokBahanSeeder::class,
-            BahanSeeder::class
+            BahanSeeder::class,
+            StokBahanSeeder::class
         ]);
     }
 }

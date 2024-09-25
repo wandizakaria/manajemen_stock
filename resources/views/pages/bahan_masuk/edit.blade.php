@@ -20,8 +20,9 @@
                         <div class="card-body">
                             <h4 class="card-title">Data Stok Masuk</h4>
                             <div class="basic-form">
-                                <form action="{{ route('bahan_masuk.store') }}" method="POST">
+                                <form action="{{ route('bahan_masuk.update', $bahan_masuk->id) }}" method="POST">
                                     @csrf
+                                    @method('PUT')
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
                                             <label for="supplier_id">Kode Bahan</label>
@@ -30,12 +31,11 @@
                                                 <option value="">Pilih Kode Bahan</option>
                                                 @foreach ($supplier as $s)
                                                     <option value="{{ $s->id }}"
-                                                        {{ $s->id == $bahan->supplier_id ? 'selected' : '' }}>
+                                                        {{ $s->id == $bahan_masuk->supplier_id ? 'selected' : '' }}>
                                                         {{ $s->kode_supplier }}
                                                     </option>
                                                 @endforeach
                                             </select>
-
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="supplier_id">Distributor</label>
@@ -44,7 +44,7 @@
                                                 <option value="">Pilih Distributor</option>
                                                 @foreach ($supplier as $s)
                                                     <option value="{{ $s->id }}"
-                                                        {{ $s->id == $bahan->supplier_id ? 'selected' : '' }}>
+                                                        {{ $s->id == $bahan_masuk->supplier_id ? 'selected' : '' }}>
                                                         {{ $s->nama_supplier }}
                                                     </option>
                                                 @endforeach
@@ -59,7 +59,7 @@
                                                 <option value="">Pilih Nama Bahan</option>
                                                 @foreach ($supplier as $s)
                                                     <option value="{{ $s->id }}"
-                                                        {{ $s->id == $bahan->supplier_id ? 'selected' : '' }}>
+                                                        {{ $s->id == $bahan_masuk->supplier_id ? 'selected' : '' }}>
                                                         {{ $s->nama_bahan }}
                                                     </option>
                                                 @endforeach
@@ -69,7 +69,7 @@
                                             <label for="tgl_masuk">Tanggal Masuk</label>
                                             <input type="date" class="form-control" id="tgl_masuk" name="tgl_masuk"
                                                 placeholder="Enter Nama Bahan" style="border-radius: 10px" required
-                                                value="{{ $bahan->tgl_masuk }}">
+                                                value="{{ $bahan_masuk->tgl_masuk }}">
                                         </div>
                                     </div>
                                     <div class="form-row">
@@ -77,13 +77,13 @@
                                             <label for="harga_per_kg">Jumlah Per Kg</label>
                                             <input type="text" class="form-control" id="harga_per_kg" name="harga_per_kg"
                                                 placeholder="Enter Jumlah Per Kg" style="border-radius: 10px" required
-                                                value="{{ $bahan->harga_per_kg }}">
+                                                value="{{ $bahan_masuk->harga_per_kg }}">
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="harga_per_g">Jumlah Per Gram</label>
                                             <input type="text" class="form-control" id="harga_per_g" name="harga_per_g"
                                                 placeholder="Enter Jumlah Per Gram" style="border-radius: 10px" required
-                                                value="{{ $bahan->harga_per_g }}">
+                                                value="{{ $bahan_masuk->harga_per_g }}">
                                         </div>
                                     </div>
                                     <div class="form-row">
@@ -91,7 +91,7 @@
                                             <label for="harga_total">Total Harga</label>
                                             <input type="text" class="form-control" id="harga_total" name="harga_total"
                                                 placeholder="Enter Total Harga" style="border-radius: 10px" required
-                                                value="{{ $bahan->harga_total }}">
+                                                value="{{ $bahan_masuk->harga_total }}">
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="supplier_id">Stok Masuk</label>
@@ -100,7 +100,7 @@
                                                 <option value="">Pilih Stok</option>
                                                 @foreach ($supplier as $s)
                                                     <option value="{{ $s->id }}"
-                                                        {{ $s->id == $bahan->supplier_id ? 'selected' : '' }}>
+                                                        {{ $s->id == $bahan_masuk->supplier_id ? 'selected' : '' }}>
                                                         {{ $s->stok }}
                                                     </option>
                                                 @endforeach

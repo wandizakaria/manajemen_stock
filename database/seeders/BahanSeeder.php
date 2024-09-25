@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Bahan;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class BahanSeeder extends Seeder
@@ -14,18 +14,12 @@ class BahanSeeder extends Seeder
     public function run(): void
     {
         Bahan::create([
-            // 'stok_bahan_id' => 1,
-            // 'jenis_id' => 1,
             'supplier_id' => 1,
-            // 'kode_bahan' => 'BHN001',
-            // 'nama_bahan' => 'Gula Pasir',
-            'tgl_masuk' => '2024-09-19' ,
+            'tgl_masuk' => '2024-09-19',
             'harga_total' => "15.000",
             'harga_per_kg' => 15000.00,
             'harga_per_g' => 15.00,
             'keterangan' => 'Gula pasir untuk produksi',
         ]);
-
-
     }
 }

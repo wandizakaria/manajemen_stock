@@ -14,7 +14,7 @@ class JenisBahanSeeder extends Seeder
     public function run(): void
     {
         JenisBahan::create([
-            'jenis' => 'Terigu',
+            'jenis' => 'Bahan Kue',
         ]);
     }
 }

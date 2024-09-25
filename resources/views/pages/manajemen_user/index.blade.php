@@ -37,7 +37,7 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($user as $u)
-                                            <tr class="text-center">
+                                            <tr class="text-center text-dark">
                                                 <td style="color: black">{{ $loop->iteration }}</td>
                                                 <td style="color: black">{{ $u->name }}</td>
                                                 <td style="color: black">{{ $u->username }}</td>

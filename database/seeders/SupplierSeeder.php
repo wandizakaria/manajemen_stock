@@ -19,7 +19,7 @@ class SupplierSeeder extends Seeder
             'alamat' => 'Jln. gelatiku no. 1',
             'no_telepon' => '1234567890',
             'nama_bahan' => 'Mentega blueband',
-            'stok' => '50',
+            'stok' => '500',
         ]);
 
         Supplier::create([
@@ -28,7 +28,7 @@ class SupplierSeeder extends Seeder
             'alamat' => 'Jln. Melati no. 23',
             'no_telepon' => '0987654321',
             'nama_bahan' => 'Gula Pasir',
-            'stok' => '100',
+            'stok' => '400',
         ]);
 
         Supplier::create([
@@ -37,7 +37,7 @@ class SupplierSeeder extends Seeder
             'alamat' => 'Jln. Mawar no. 45',
             'no_telepon' => '08123456789',
             'nama_bahan' => 'Tepung Terigu',
-            'stok' => '75',
+            'stok' => '300',
         ]);
 
     }
