@@ -18,10 +18,12 @@ class Bahan extends Model
         'harga_per_kg',
         'harga_per_g',
         'keterangan',
+        'jumlah_gram',
     ];
 
     public function supplier()
     {
         return $this->belongsTo(Supplier::class, 'supplier_id', 'id');
     }
+    
 }

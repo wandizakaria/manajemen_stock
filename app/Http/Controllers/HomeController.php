@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\Bahan;
+use App\Models\StokBahan;
+use App\Models\Produksi;
 
 class HomeController extends Controller
 {
@@ -11,8 +15,18 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home.index');
+        // Menghitung jumlah data dari setiap model
+        $user = User::count();
+        $bahan = Bahan::count(); // Menggunakan model Bahan, sesuai dengan import
+        $stok_bahan = StokBahan::count();
+        $produksi = Produksi::count();
+
+        // Mengirim data ke view dashboard
+        return view('home.index', compact('user', 'bahan', 'stok_bahan', 'produksi'));
     }
+
+
+    
 
     /**
      * Show the form for creating a new resource.

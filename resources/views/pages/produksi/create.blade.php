@@ -26,13 +26,13 @@
                                         <div class="form-group col-md-6">
                                             <label for="jenis_produksi" style="color: black">Jenis Produksi</label>
                                             <input type="text" class="form-control" id="jenis_produksi"
-                                                name="jenis_produksi" placeholder="Enter Jumlah Per Gram"
+                                                name="jenis_produksi" placeholder="Enter Jenis Produksi"
                                                 style="border-radius: 10px" required style="color: black">
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="jumlah_produksi" style="color: black">Jumlah Produksi</label>
                                             <input type="text" class="form-control" id="jumlah_produksi"
-                                                name="jumlah_produksi" placeholder="Enter Jumlah Per Gram"
+                                                name="jumlah_produksi" placeholder="Enter Jumlah Produksi"
                                                 style="border-radius: 10px" required style="color: black">
                                         </div>
                                     </div>

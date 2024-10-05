@@ -21,7 +21,8 @@
                         <div class="dropdown-content-body">
                             <ul>
                                 <li>
-                                    <a href="app-profile.html"><i class="fas fa-user"></i> <span>Profile</span></a>
+                                    <a href="{{ route('profile.edit') }}"><i class="fas fa-user"></i>
+                                        <span>Profile</span></a>
                                 </li>
                                 <hr class="my-2">
                                 <li>

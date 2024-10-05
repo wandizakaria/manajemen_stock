@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Produksi')
+@section('title', 'Unit Produksi')
 
 @section('content')
     <div class="content-body">
@@ -50,12 +50,13 @@
                                                         class="btn btn-primary btn-sm" style="border-radius:5px">
                                                         <i class="fas fa-edit"></i>
                                                     </a>
-                                                    <form action="{{ route('produksi.destroy', $p->id) }}" method="POST">
+                                                    <span style="margin-right: 5px"></span>
+                                                    <form action="{{ route('produksi.destroy', $p->id) }}" method="POST"
+                                                        style="display:inline;">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button type="submit" class="btn btn-danger btn-sm"
-                                                            onclick="confirm('Apakah Anda yakin ingin menghapus data produksi ini?')"
-                                                            style="border-radius:5px">
+                                                        <button class="btn btn-danger btn-sm" style="border-radius:5px"
+                                                            onclick="return confirm('Apakah Anda yakin ingin menghapus data bahan masuk ini?')">
                                                             <i class="fas fa-trash"></i>
                                                         </button>
                                                     </form>

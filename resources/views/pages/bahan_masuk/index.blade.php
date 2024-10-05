@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Stok Masuk')
+@section('title', 'Bahan Masuk')
 
 @section('content')
     <div class="content-body">

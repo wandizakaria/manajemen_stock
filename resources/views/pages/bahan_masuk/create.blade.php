@@ -24,9 +24,9 @@
                                     @csrf
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
-                                            <label for="supplier_id" style="color: black">Kode Bahan</label>
-                                            <select class="form-control" id="supplier_id" name="supplier_id"
-                                                style="color: black" style="border-radius: 10px" required>
+                                            <label for="bahan_id" style="color: black">Kode Bahan</label>
+                                            <select class="form-control" id="bahan_id" name="bahan_id" style="color: black"
+                                                style="border-radius: 10px" required>
                                                 <option value="">Pilih Kode Bahan</option>
                                                 @foreach ($supplier as $s)
                                                     <option value="{{ $s->id }}">{{ $s->kode_supplier }}</option>
@@ -35,9 +35,9 @@
 
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label for="supplier_id" style="color: black">Distributor</label>
-                                            <select class="form-control" id="supplier_id" name="supplier_id"
-                                                style="color: black" style="border-radius: 10px" required>
+                                            <label for="bahan-id" style="color: black">Distributor</label>
+                                            <select class="form-control" id="bahan_id" name="bahan_id" style="color: black"
+                                                style="border-radius: 10px" required>
                                                 <option value="">Pilih Distributor</option>
                                                 @foreach ($supplier as $s)
                                                     <option value="{{ $s->id }}">
@@ -48,9 +48,9 @@
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
-                                            <label for="supplier_id" style="color: black">Nama Bahan</label>
-                                            <select class="form-control" id="supplier_id" name="supplier_id"
-                                                style="color: black" style="border-radius: 10px" required>
+                                            <label for="bahan_id" style="color: black">Nama Bahan</label>
+                                            <select class="form-control" id="bahan_id" name="bahan_id" style="color: black"
+                                                style="border-radius: 10px" required>
                                                 <option value="">Pilih Nama Bahan</option>
                                                 @foreach ($supplier as $s)
                                                     <option value="{{ $s->id }}">{{ $s->nama_bahan }}</option>

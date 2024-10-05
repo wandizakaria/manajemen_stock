@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('username')->unique();
-            $table->enum('level', ['pemiik', 'operator', 'produksi']);
+            $table->enum('level', ['pemilik', 'operator', 'produksi']);
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

@@ -32,7 +32,9 @@
                                             <th>Nama</th>
                                             <th>Username</th>
                                             <th>Jabatan</th>
+                                            <br>
                                             <th>Aksi</th>
+
                                         </tr>
                                     </thead>
                                     <tbody>

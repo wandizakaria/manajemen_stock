@@ -10,6 +10,7 @@ use App\Http\Controllers\BahanController;
 use App\Http\Controllers\BahanMasukController;
 use App\Http\Controllers\SupplierController;
 
+
 Route::get('/', function () {
     return view('auth.login');
 });
@@ -28,6 +29,21 @@ Route::resource('bahan_masuk', BahanController::class);
 
 Route::middleware('auth')->group(function () {
 
+      Route::middleware('check.level:pemilik')->group(function () {
+        Route::get('stok_bahan', [StokBahanController::class, 'index'])->name('stok_bahan.index');
+    });
+
+    Route::middleware('check.level:operator')->group(function () {
+        Route::get('bahan_masuk', [BahanMasukController::class, 'index'])->name('bahan_masuk.index');
+        Route::get('stok_bahan', [StokBahanController::class, 'index'])->name('stok_bahan.index');
+        Route::get('manajemen_user', [ManajemenUserController::class, 'index'])->name('manajemen_user.index');
+        Route::get('produksi', [ProduksiController::class, 'index'])->name('produksi.index');
+    });
+
+      Route::middleware('check.level:produksi')->group(function () {
+        Route::get('produksi', [ProduksiController::class, 'index'])->name('produksi.index');
+    });
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -39,3 +55,6 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__ . '/auth.php';
+
+   
+
